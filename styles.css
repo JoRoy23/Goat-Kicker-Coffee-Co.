@@ -1,0 +1,1167 @@
+* {
+  font-size: 16px;
+  font-family: "Playfair Display", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+/* ============================================================
+                    NAVIGATION BAR
+=============================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: top 0.5s;
+}
+.visibleNavBar {
+  width: 100%;
+  height: 85px;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hamburgerMenu {
+  width: 44px;
+  height: 44px;
+  margin-left: 10px;
+  cursor: pointer;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hamburgerMiddleBar {
+  position: relative;
+  width: 50%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(157, 132, 96, 1);
+  transition: all 0.5s;
+}
+.hamburgerMiddleBar::after,
+.hamburgerMiddleBar::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(157, 132, 96, 1);
+}
+.hamburgerMiddleBar::before {
+  transform: translateY(-6px);
+  transition: transform 0.5s;
+}
+.hamburgerMiddleBar::after {
+  transform: translateY(6px);
+  transition: transform 0.5s;
+}
+.hamburgerMenu.openNav .hamburgerMiddleBar {
+  transform: translateX(-50px);
+  transition: transform 0.5s;
+}
+.hamburgerMenu.openNav .hamburgerMiddleBar:before {
+  transform: translateX(50px) rotate(45deg);
+  transition: transform 0.5s;
+}
+.hamburgerMenu.openNav .hamburgerMiddleBar:after {
+  transform: translateX(50px) rotate(-45deg);
+  transition: transform 0.5s;
+}
+.logo {
+  width: 120px;
+  height: 80px;
+  opacity: 0.8;
+  background: url("./images/goatLogo.jpg") no-repeat center;
+  background-size: cover;
+}
+.shoppingCartLogoContainer {
+  width: 55px;
+  height: 44px;
+  margin-right: 21px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.shoppingCartLogo i {
+  font-size: 1.2rem;
+  color: rgba(70, 70, 70, 1);
+}
+.itemsCounterIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(157, 132, 96, 1);
+}
+.hidingNavBar {
+  width: 100%;
+  overflow-y: hidden;
+  background: transparent;
+}
+.navBarList {
+  width: 100%;
+  margin: 0;
+  padding: 15px 22px 0 22px;
+  list-style: none;
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1000px);
+  transition: transform 0.8s;
+}
+.navBarList.activeMainBar {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(0);
+  transition: transform 0.5s;
+}
+.navItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 0.8rem;
+  letter-spacing: 1.3px;
+  color: rgba(160, 160, 160, 1);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(234, 234, 234, 1);
+}
+.subItem li a i,
+.navItem i {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: rgba(160, 160, 160, 1);
+}
+.navItem.rotateArrow i {
+  transform: rotate(90deg);
+  transition: transform 0.1s;
+}
+.subItem {
+  list-style: none;
+  display: none;
+}
+.subItem.activeSubBar {
+  display: flex;
+  flex-direction: column;
+}
+.subItem li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 0.8rem;
+  letter-spacing: 1.3px;
+  text-decoration: none;
+  color: rgba(160, 160, 160, 1);
+  border-bottom: 1px solid rgba(234, 234, 234, 1);
+}
+.navItem:hover,
+.subItem li a:hover {
+  padding-left: 10px;
+  color: rgba(157, 132, 96, 1);
+  transition: all 0.5s;
+}
+.socialIcons a:hover i,
+.subItem li a:hover i,
+.navItem:hover i {
+  color: rgba(157, 132, 96, 1);
+  transition: color 0.5s;
+}
+.socialIcons {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.socialIcons a {
+  width: 44px;
+  height: 44px;
+  margin: 0 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.socialIcons a i {
+  font-size: 1.2rem;
+  color: rgba(160, 160, 160, 1);
+  transition: color 0.5s;
+}
+
+/* ============================================================
+                HOME PAGE BEST SELLER ARTICLE
+=============================================================== */
+.homePageBestSellerContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.homeBackgroundImage {
+  width: 100%;
+  height: 270px;
+  background: url("./nature2.jpg") no-repeat center;
+  background-size: cover;
+  filter: grayscale(0.4);
+}
+.bestSellerPicture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -87%);
+  width: 50%;
+  height: 40%;
+  background: url("./images/sumatra.png") no-repeat center;
+  background-size: cover;
+  z-index: 1;
+}
+.homeBestSellerDescriptionContainer {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bestSellerTitle {
+  margin: 20px 0 10px;
+  width: 85%;
+  text-align: center;
+  line-height: 1.1;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+}
+.bestSellerSubtitle {
+  width: 85%;
+  text-align: center;
+  line-height: 1.5;
+  margin: 5px 0 40px 0;
+  font-size: 0.9rem;
+  font-weight: 200;
+  letter-spacing: 1.1px;
+  color: rgba(140, 140, 140, 1);
+}
+.viewCoffeeButton {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 25px 40px;
+  font-size: 0.7rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(157, 132, 96, 1);
+  transition: background 0.5s;
+}
+.viewCoffeeButton:hover {
+  background: rgba(157, 132, 96, 0.8);
+  transition: background 0.5s;
+}
+.viewCoffeeButton i {
+  font-size: 0.6rem;
+  margin-left: 5px;
+}
+
+/* ============================================================
+                    BEST SELLER SELECTION PAGE
+=============================================================== */
+.coffeePictureContainer {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin-bottom: 5px;
+  background: linear-gradient(rgba(220, 220, 220, 1), rgba(255, 255, 255, 1));
+}
+.coffeePicture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -37%);
+  width: 80%;
+  height: 80%;
+  background: url("./images/sumatra.png") no-repeat center;
+  background-size: cover;
+}
+.coffeeDescriptionContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.beanPrice,
+.coffeeTitle {
+  margin: 0;
+  width: 85%;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 2.7rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+}
+.coffeeSubtitle {
+  width: 85%;
+  margin: 20px 0 10px;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+  color: rgba(160, 160, 160, 1);
+}
+.beanPrice {
+  font-size: 3.3rem;
+  font-family: "Cormorant Upright";
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+.weightSelection {
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  background: rgba(240, 240, 240, 1);
+  border: none;
+}
+.beanType {
+  margin: 35px 0;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectBean {
+  width: 110px;
+  height: 130px;
+  margin: 0 8px;
+  padding: 15px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: border 0.3s;
+}
+.wholeBean {
+  background: rgba(240, 240, 240, 1);
+}
+.wholeBean:hover,
+.ground:hover {
+  border: 1px solid rgba(240, 240, 240, 1);
+  transition: border 0.3s;
+}
+.ground span,
+.wholeBean span {
+  margin-top: 5px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.cardRelated {
+  width: 85%;
+  margin: 5px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardItemsAdded {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(200, 200, 200, 1);
+  text-align: center;
+  font-size: 1.1rem;
+  -moz-appearance: textfield;
+}
+.cardItemsAdded:hover {
+  -moz-appearance: none;
+}
+.addCoffeeToCard {
+  padding: 25px 50px;
+  margin-left: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1.2px;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(157, 132, 96, 1);
+  transition: background 0.5s;
+}
+.addCoffeeToCard:hover {
+  background: rgba(157, 132, 96, 0.8);
+  transition: background 0.5s;
+}
+
+/* ============================================================
+                 COFFEE ADDED TO CARD POPUP
+=============================================================== */
+.coffeeAddedContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  background: rgba(70, 70, 70, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+.textAddedToCart {
+  display: block;
+  margin: 20px 0 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+.exitContainerSymbol {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: rgba(40, 40, 40, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s;
+}
+.exitContainerSymbol i {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 1);
+  transition: color 0.5s;
+}
+.exitContainerSymbol:hover {
+  background: rgba(255, 255, 255, 1);
+  transition: background 0.5s;
+}
+.exitContainerSymbol:hover i {
+  color: rgba(70, 70, 70, 1);
+  transition: color 0.5s;
+}
+.coffeeNameAdded {
+  display: block;
+  margin: 20px 0 10px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1);
+}
+.priceQuantityAdded,
+.priceQuantityAdded span {
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: "Cormorant Upright";
+  color: rgba(160, 160, 160, 1);
+}
+.operationAvailable a {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  padding: 12px 42px;
+  margin: 25px 7px 20px;
+  border: 2px solid rgba(240, 240, 240, 1);
+  color: rgba(255, 255, 255, 1);
+  transition: background 0.5s;
+}
+.operationAvailable a:hover {
+  background: rgba(157, 132, 96, 1);
+  color: rgba(70, 70, 70, 1);
+  border: 2px solid rgba(157, 132, 96, 1);
+  transition: background 0.5s;
+}
+/* ============================================================
+                           MENU
+=============================================================== */
+.menuTitle,
+.locationTitle,
+.contactTitle,
+.blogTitle {
+  width: 100%;
+  margin: 0 auto 10px;
+  padding: 95px 0 0 0;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  color: rgba(70, 70, 70, 1);
+  background: linear-gradient(rgba(239, 239, 239, 1), rgba(255, 255, 255, 1));
+}
+.menuContainer {
+  width: 100%;
+  margin: 40px 0 80px;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.menuPrincipalSection {
+  width: 80%;
+  margin: 5px auto;
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
+}
+.menuSubTitle {
+  margin: 50px 0 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 1.2px;
+  color: rgba(157, 132, 96, 1);
+}
+.coldBrewSubTitle {
+  margin-top: 0px;
+}
+.menuSubSection {
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid rgba(200, 200, 200, 1);
+}
+.subSectionItemName {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1.1px;
+  color: rgba(70, 70, 70, 1);
+}
+.menuItemPrice {
+  margin-left: 10px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: "Cormorant Upright";
+  color: rgba(70, 70, 70, 1);
+}
+.subSectionDescription {
+  margin: 10px 0;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  letter-spacing: 1.1px;
+  color: rgba(140, 140, 140, 1);
+}
+
+/* ============================================================
+                    LOCATION AND BLOG
+=============================================================== */
+.blogDescription,
+.locationDescription {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+  color: rgba(70, 70, 70, 1);
+  display: none;
+}
+.mainBlogContainer,
+.locationContainer {
+  width: 85%;
+  margin: 50px auto 80px;
+}
+.blogContainer,
+.shopLocationContainer {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+}
+.blogContainer:last-of-type,
+.shopLocationContainer:last-of-type {
+  margin-bottom: 50px;
+}
+.pictureblogTag,
+.pictureLocationTag {
+  display: block;
+  width: 100%;
+}
+.blogPicture,
+.locationPicture {
+  width: 100%;
+  cursor: pointer;
+}
+.blogTextContainer,
+.locationAddressContainer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 50px;
+  background: rgba(243, 243, 243, 1);
+}
+.blogName a,
+.locationName a {
+  display: block;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  color: rgba(157, 132, 96, 1);
+  transition: color 0.5s;
+}
+.blogName {
+  font-size: 1.7rem;
+}
+.blogName a:hover,
+.locationName a:hover {
+  color: rgba(70, 70, 70, 1);
+  transition: color 0.5s;
+}
+.blogText,
+.locationAddress {
+  margin: 20px 0 30px;
+  line-height: 1.5;
+  color: rgba(70, 70, 70, 1);
+}
+.locationPhoneNumber {
+  text-decoration: none;
+  color: rgba(70, 70, 70, 1);
+}
+.readMoreContainer,
+.locationOpenHoursContainer {
+  width: 100%;
+  padding: 30px 60px;
+  text-align: center;
+  background: rgba(230, 230, 230, 1);
+}
+.blogDate {
+  font-weight: 500;
+  color: rgba(70, 70, 70, 1);
+}
+.locationWeekend,
+.locationWeekDay {
+  width: 100%;
+}
+.locationWeekend {
+  margin-top: 30px;
+}
+.weekendsTime,
+.weekDaysTime {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: rgba(70, 70, 70, 1);
+}
+.openHoursWeekDays,
+.openHoursWeekends {
+  color: rgba(70, 70, 70, 1);
+}
+.openHoursWeekends {
+  line-height: 2;
+}
+.viewMoreButton,
+.viewDetailsButton {
+  display: inline-block;
+  width: 220px;
+  padding: 20px 0;
+  margin: 20px 0 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(157, 132, 96, 1);
+  transition: background 0.5s;
+}
+.viewMoreButton i,
+.viewDetailsButton i {
+  font-size: 0.6rem;
+  margin-left: 5px;
+  color: rgba(255, 255, 255, 1);
+}
+.viewMoreButton {
+  width: 170px;
+}
+.viewMoreButton:hover,
+.viewDetailsButton:hover {
+  background: rgba(70, 70, 70, 1);
+  transition: background 0.5s;
+}
+
+/* ============================================================
+                          CONTACT
+=============================================================== */
+.contactContainer {
+  width: 85%;
+  margin: 30px auto 60px;
+}
+.contactInformation {
+  width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(70, 70, 70, 1);
+}
+.contactInformation span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.contactInformation .contactPhone {
+  text-decoration: none;
+  color: rgba(70, 70, 70, 1);
+}
+.contactQuestions {
+  margin: 30px 0;
+  font-size: 0.95rem;
+}
+.contactQuestions a {
+  text-decoration: none;
+  color: rgba(157, 132, 96, 1);
+  transition: color 0.5s;
+}
+.contactQuestions a:hover {
+  color: rgba(70, 70, 70, 1);
+  transition: color 0.5s;
+}
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 35px;
+  margin-top: 40px;
+}
+.contactSection {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  border: 1px solid rgba(200, 200, 200, 1);
+}
+.contactTextArea {
+  position: relative;
+  height: 150px;
+}
+.contactTextArea textarea,
+.contactSection input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  color: rgba(70, 70, 70, 1);
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+.contactTextArea textarea {
+  padding: 10px 10px;
+  line-height: 1.5;
+  resize: none;
+}
+.contactSection .sectionTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 1.1px;
+  margin: 11px 10px;
+  transition: margin 0.5s;
+}
+.contactSection .sectionBorder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 0%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(157, 132, 96, 1);
+  transition: width 1s;
+}
+.contactSection textarea:focus ~ .sectionBorder,
+.contactSection input:focus ~ .sectionBorder {
+  width: 100%;
+  transition: width 1s;
+}
+.contactSection textarea:focus + .sectionTitle,
+.contactSection input:focus + .sectionTitle {
+  margin: -23px 0 0 -1px;
+  transition: margin 0.5s;
+}
+.contactSection textarea:valid + .sectionTitle,
+.contactSection input:valid + .sectionTitle {
+  margin: -23px 0 0 -1px;
+  transition: margin 0.5s;
+}
+.contactButtonContainer {
+  text-align: right;
+}
+.contactSendButton {
+  padding: 15px 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(157, 132, 96, 1);
+  border: none;
+  transition: background 0.5s;
+}
+.contactSendButton:hover {
+  background: rgba(70, 70, 70, 1);
+  transition: background 0.5s;
+}
+/* ============================================================
+                         MAILING LIST
+=============================================================== */
+.mailingListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 370px;
+  background-color: rgba(220, 220, 220, 0.4);
+}
+.mailingListContainer:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("./images/mailingListBackground.jpeg") no-repeat center;
+  background-size: 270px;
+  z-index: -1;
+  filter: opacity(0.3) grayscale(1);
+}
+.mailingListContainer h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  color: rgba(70, 70, 70, 1);
+}
+.mailingListContainer p {
+  width: 90%;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 1.1px;
+  margin: 30px auto 90px;
+  color: rgba(140, 140, 140, 1);
+}
+.mailingListContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
+}
+.mailingListContainer form input[type="text"] {
+  width: 250px;
+  height: 100%;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  letter-spacing: 1.1px;
+  border: none;
+}
+.mailingSignUp {
+  width: 85px;
+  height: 100%;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.1px;
+  border: none;
+  background: rgba(157, 132, 96, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: background 0.5s;
+}
+.mailingSignUp:hover {
+  background: rgba(70, 70, 70, 1);
+  transition: background 0.5s;
+}
+/* ============================================================
+                           FOOTER
+=============================================================== */
+footer {
+  width: 100%;
+}
+.footerMainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footerLogoContainer {
+  width: 85%;
+  margin: 10px auto 0;
+  display: flex;
+  align-items: center;
+}
+.leftLine,
+.rightLine {
+  width: 50%;
+  height: 1px;
+  border-radius: 2px;
+  background: transparent;
+}
+.footerLogo {
+  display: block;
+  width: 120px;
+  height: 80px;
+  background: url("./images/goatLogo.jpg") no-repeat center;
+  background-size: cover;
+}
+.footerContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+.footerPrincipalSection {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin-bottom: 30px;
+  display: none;
+}
+.footerSubSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.subSectionTitle {
+  margin: 0 0 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: rgba(70, 70, 70, 1);
+}
+.footerSubSection a {
+  font-size: 1rem;
+  font-weight: 300;
+  text-decoration: none;
+  letter-spacing: 1px;
+  line-height: 2;
+  color: rgba(157, 132, 96, 1);
+  transition: color 0.5s;
+}
+.footerSubSection a:hover {
+  color: rgba(70, 70, 70, 1);
+  transition: color 0.5s;
+}
+.footerSocialIcons {
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+}
+.footerSocialIcons a {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 0 7px;
+  text-decoration: none;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 160, 160, 1);
+  transition: all 0.5s;
+}
+.footerSocialIcons i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: rgba(70, 70, 70, 1);
+  transition: color 0.5s;
+}
+.footerSocialIcons a:hover {
+  border: 1px solid transparent;
+  background: rgba(157, 132, 96, 1);
+  transition: all 0.5s;
+}
+.footerSocialIcons a:hover i {
+  color: rgba(255, 255, 255, 1);
+  transition: color 0.5s;
+}
+.footerRigths {
+  width: 80%;
+  margin: 0 auto 30px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(70, 70, 70, 1);
+}
+
+/* ============================================================
+                           MEDIA QUERIE
+=============================================================== */
+@media screen and (min-width: 768px) {
+  /* FOR THE NAVBAR */
+  .visibleNavBar {
+    height: 120px;
+  }
+  .logo {
+    width: 120px;
+    height: 120px;
+    opacity: 0.8;
+    background: url("./images/longLogo.jpeg") no-repeat center;
+    background-size: cover;
+  }
+
+  /* FOR THE MENU */
+  .blogTitle,
+  .contactTitle,
+  .locationTitle,
+  .menuTitle {
+    padding: 130px 0 0 0;
+    margin-bottom: 30px;
+    font-size: 5rem;
+  }
+  .menuContainer {
+    width: 70%;
+    margin: 40px auto 80px;
+    padding-bottom: 50px;
+    background: rgba(240, 240, 240, 1);
+  }
+  .menuSubTitle {
+    text-align: left;
+  }
+
+  /* FOR THE LOCATION AND BLOG */
+  .locationName a {
+    font-size: 2.8rem;
+  }
+  .blogName a {
+    font-size: 2.4rem;
+  }
+  .blogDescription,
+  .locationDescription {
+    display: block;
+  }
+  /* FOR THE CONTACT */
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contactButtonContainer,
+  .contactTextArea,
+  .contactEmail,
+  .contactMobile {
+    grid-column: 1/3;
+  }
+
+  /* FOR THE MAILING LIST */
+  .mailingListContainer h1 {
+    font-size: 2.4rem;
+  }
+  .mailingListContainer form input[type="text"] {
+    width: 400px;
+  }
+  .mailingSignUp {
+    width: 100px;
+  }
+
+  /* FOR THE FOOTER */
+  footer {
+    padding: 0 20px 20px;
+    background: rgba(240, 240, 240, 1);
+  }
+  .footerMainContainer {
+    background: rgba(255, 255, 255, 1);
+  }
+  .footerLogoContainer {
+    margin: 10px auto 20px;
+  }
+  .leftLine,
+  .rightLine {
+    background: rgba(200, 200, 200, 1);
+  }
+  .footerPrincipalSection {
+    display: flex;
+  }
+}
+@media screen and (min-width: 990px) {
+  /* FOR THE NAVBAR */
+  .navItem,
+  .subItem li a,
+  .subItem li a i {
+    font-size: 0.9rem;
+  }
+  .socialIcons a i {
+    font-size: 1.4rem;
+  }
+
+  /* FOR THE MENU */
+  .menuContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .menuPrincipalSection {
+    width: 40%;
+  }
+  .coldBrewSubTitle {
+    margin-top: 50px;
+  }
+
+  /* FOR THE LOCATION AND BLOG */
+  .mainBlogContainer,
+  .locationContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .blogContainer,
+  .shopLocationContainer {
+    width: 48.5%;
+  }
+  .blogContainer:nth-child(3),
+  .shopLocationContainer:nth-child(3) {
+    margin-bottom: 0;
+  }
+  .blogContainer:nth-child(4),
+  .shopLocationContainer:nth-child(4) {
+    margin-bottom: 0;
+  }
+  .locationName a {
+    font-size: 2.4rem;
+  }
+  .blogName a {
+    font-size: 1.6rem;
+  }
+  .locationAddressContainer {
+    padding: 30px 30px;
+  }
+  /* FOR THE CONTACT */
+  .contactContainer {
+    width: 900px;
+  }
+
+  /* FOR THE MAILING LIST */
+  .mailingListContainer h1 {
+    font-size: 2.7rem;
+  }
+  .mailingListContainer form {
+    width: 900px;
+  }
+
+  /* FOR THE FOOTER */
+  .footerContainer {
+    width: 900px;
+  }
+  .footerLogoContainer {
+    width: 850px;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+}
