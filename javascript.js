@@ -1,4 +1,30 @@
 /* ============================================================
+                     FADE IN ANIMATION
+=============================================================== */
+/* Fade in animation when scrolling with intersection observer */
+const faders = document.querySelectorAll(".fadeIn");
+
+const options = {
+  root: null,
+  threshold: 0.55,
+};
+
+const fadeInOnScroll = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add("appear");
+      fadeInOnScroll.unobserve(entry.target);
+    }
+  });
+}, options);
+
+faders.forEach((fader) => {
+  fadeInOnScroll.observe(fader);
+});
+
+/* ============================================================
                 OPEN HOME PAGE ANIMATION GSAP
 =============================================================== */
 let tl = gsap.timeline({ default: { ease: "power2" } });
@@ -46,68 +72,83 @@ tl2.from(
 );
 
 /* ============================================================
-                MENU ANIMATION GSAP
+                       ANIMATION GSAP
 =============================================================== */
+/* Menu animation with GSAP */
+const menuSections = document.querySelectorAll(".menuPrincipalSection");
+
 let tl3 = gsap.timeline({ default: { ease: "power2" } });
+
 tl3.from(
   ".menuTitle",
   {
-    duration: 1,
+    duration: 0.6,
     opacity: 0,
-    y: -100,
-    ease: "bounce",
+    y: 30,
   },
   "0.6"
 );
 tl3.from(
-  ".menuPrincipalSection",
+  ".menuContainer",
   {
     duration: 0.6,
     opacity: 0,
-    x: -100,
+    y: 30,
   },
   "-=0.4"
 );
+for (let i = 0; i < menuSections.length; i++) {
+  tl3.from(
+    menuSections[i],
+    {
+      duration: 0.6,
+      opacity: 0,
+      y: 20,
+    },
+    "-=0.4"
+  );
+}
 
-/* ============================================================
-                LOCATIONS ANIMATION GSAP
-=============================================================== */
+/* Location animation with GSAP */
+const shopContainer = document.querySelectorAll(".shopLocationContainer");
+
 let tl4 = gsap.timeline({ default: { ease: "power2" } });
-tl4.from(".locationTitle", { duration: 0.8, opacity: 0, y: 50 }, "0.6");
-tl4.from(".locationDescription", { duration: 0.5, opacity: 0 });
+
+tl4.from(".locationTitle", { duration: 0.6, opacity: 0, y: 30 }, "0.6");
+tl4.from(".locationDescription", { duration: 0.6, opacity: 0, y: 20 }, "-=0.4");
 tl4.from(
   ".shopLocationContainer",
-  { duration: 0.8, opacity: 0, scale: 0.7 },
-  "-=0.2"
+  { duration: 0.7, opacity: 0, y: 20 },
+  "-=0.4"
 );
 
-/* ============================================================
-                CONTACT ANIMATION GSAP
-=============================================================== */
+/* Contact animation with GSAP */
 let tl5 = gsap.timeline({ default: { ease: "power2" } });
-tl5.from(".contactTitle", { duration: 0.6, opacity: 0 }, "0.6");
-tl5.from(".contactInformation", { duration: 0.5, opacity: 0, scale: 0.5 });
-tl5.from(
-  ".contactQuestions",
-  { duration: 0.5, opacity: 0, scale: 0.5 },
-  "-=0.5"
-);
-tl5.from(".contactSection", { duration: 0.5, opacity: 0, scale: 1.2 });
-tl5.from(".contactSendButton", { duration: 0.5, opacity: 0, y: 30 });
+
+tl5.from(".contactTitle", { duration: 0.6, opacity: 0, y: 30 }, "0.6");
+tl5.from(".contactInformation", { duration: 0.6, opacity: 0, y: 20 }, "-=0.4");
+tl5.from(".contactQuestions", { duration: 0.5, opacity: 0, y: 20 }, "-=0.4");
+tl5.from(".contactSection", { duration: 0.5, opacity: 0, y: 30 }, "-=0.3");
+tl5.from(".contactSendButton", { duration: 0.5, opacity: 0, y: 15 }, "-=0.2");
 
 /* ============================================================
                     HAMBURGER ANIMATION
 =============================================================== */
 const hamburgerMenu = document.querySelector(".hamburgerMenu");
-let openNav = false;
+const body = document.querySelector("body");
 
+/* When clicking on the hamburger menu */
 hamburgerMenu.addEventListener("click", () => {
-  if (!openNav) {
-    hamburgerMenu.classList.add("openNav");
-    openNav = true;
-  } else {
+  hamburgerMenu.classList.toggle("openNav");
+  body.classList.toggle("noScroll");
+});
+
+/* When clicking outside the navigation bar when it's open */
+window.addEventListener("click", (event) => {
+  if (event.target !== hidingNavBar && event.target !== hamburgerMenu) {
     hamburgerMenu.classList.remove("openNav");
-    openNav = false;
+    body.classList.remove("noScroll");
+    hidingNavBar.classList.remove("activeMainBar");
   }
 });
 

@@ -7,6 +7,10 @@ body {
   margin: 0;
   padding: 0;
 }
+body.noScroll {
+  height: 100vh;
+  overflow-y: hidden;
+}
 /* ============================================================
                     NAVIGATION BAR
 =============================================================== */
@@ -775,7 +779,7 @@ body {
   display: block;
   font-size: 0.9rem;
   letter-spacing: 1.1px;
-  margin: 11px 10px;
+  margin: -23px 0 0 -1px;
   transition: margin 0.5s;
 }
 .contactSection .sectionBorder {
@@ -793,16 +797,6 @@ body {
 .contactSection input:focus ~ .sectionBorder {
   width: 100%;
   transition: width 1s;
-}
-.contactSection textarea:focus + .sectionTitle,
-.contactSection input:focus + .sectionTitle {
-  margin: -23px 0 0 -1px;
-  transition: margin 0.5s;
-}
-.contactSection textarea:valid + .sectionTitle,
-.contactSection input:valid + .sectionTitle {
-  margin: -23px 0 0 -1px;
-  transition: margin 0.5s;
 }
 .contactButtonContainer {
   text-align: right;
@@ -831,7 +825,7 @@ body {
   align-items: center;
   width: 100%;
   height: 370px;
-  background-color: rgba(220, 220, 220, 0.4);
+  background-color: rgba(220, 220, 220, 0.2);
 }
 .mailingListContainer:before {
   position: absolute;
@@ -999,6 +993,18 @@ footer {
   font-size: 0.8rem;
   color: rgba(70, 70, 70, 1);
 }
+/* ============================================================
+                           FADE IN
+=============================================================== */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease-in-out;
+}
+.fadeIn.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ============================================================
                            MEDIA QUERIE
@@ -1031,6 +1037,9 @@ footer {
     padding-bottom: 50px;
     background: rgba(240, 240, 240, 1);
   }
+  .menuPrincipalSection:first-of-type {
+    margin-top: 40px;
+  }
   .menuSubTitle {
     text-align: left;
   }
@@ -1058,6 +1067,9 @@ footer {
   }
 
   /* FOR THE MAILING LIST */
+  .mailingListContainer {
+    margin-top: 90px;
+  }
   .mailingListContainer h1 {
     font-size: 2.4rem;
   }
@@ -1071,7 +1083,7 @@ footer {
   /* FOR THE FOOTER */
   footer {
     padding: 0 20px 20px;
-    background: rgba(240, 240, 240, 1);
+    background: rgba(240, 240, 240, 0.4);
   }
   .footerMainContainer {
     background: rgba(255, 255, 255, 1);
@@ -1105,6 +1117,9 @@ footer {
   }
   .menuPrincipalSection {
     width: 40%;
+  }
+  .menuPrincipalSection:first-of-type {
+    margin-top: 0;
   }
   .coldBrewSubTitle {
     margin-top: 50px;
@@ -1141,6 +1156,17 @@ footer {
   /* FOR THE CONTACT */
   .contactContainer {
     width: 900px;
+    margin: 50px auto 60px;
+  }
+  .contactTextArea {
+    height: 250px;
+  }
+  .contactGrid {
+    grid-gap: 50px;
+    margin-top: 70px;
+  }
+  .contactQuestions {
+    margin: 50px 0;
   }
 
   /* FOR THE MAILING LIST */
