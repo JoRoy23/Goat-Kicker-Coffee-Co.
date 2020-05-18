@@ -1,4 +1,56 @@
 /* ============================================================
+                       NAVIGATION BAR
+=============================================================== */
+const hamburgerContainer = document.querySelector(".hamburgerMenuContainer");
+const hamburgerMenu = document.querySelector(".hamburgerMenu");
+const hidingNavBar = document.querySelector(".navBarList");
+const body = document.querySelector("body");
+const header = document.querySelector(".header");
+const subListOpener = document.querySelectorAll(".navItem");
+const subList = document.querySelectorAll(".subItem");
+let previousScrollPos = window.pageYOffset;
+
+/* When clicking on the hamburger menu */
+hamburgerMenu.addEventListener("click", () => {
+  hamburgerContainer.classList.toggle("openNav");
+  body.classList.toggle("noScroll");
+  hidingNavBar.classList.toggle("activeMainBar");
+});
+
+window.addEventListener("click", function (event) {
+  if (event.target !== header && event.target !== hamburgerMenu) {
+    hamburgerContainer.classList.remove("openNav");
+    body.classList.remove("noScroll");
+    hidingNavBar.classList.remove("activeMainBar");
+  }
+});
+
+/* Open submenu in the navigation bar */
+for (let i = 0; i < subListOpener.length; i++) {
+  subListOpener[i].addEventListener("click", () => {
+    subList[i].classList.toggle("activeSubBar");
+  });
+}
+
+/* Rotate the main navigation arrow */
+for (let j = 0; j < subListOpener.length; j++) {
+  subListOpener[j].addEventListener("click", () => {
+    subListOpener[j].classList.toggle("rotateArrow");
+  });
+}
+
+/* Sticky navigation bar */
+window.addEventListener("scroll", () => {
+  let currentScrollPos = window.pageYOffset;
+  if (previousScrollPos > currentScrollPos) {
+    header.style.top = "0";
+  } else {
+    header.style.top = "-150px";
+  }
+  previousScrollPos = currentScrollPos;
+});
+
+/* ============================================================
                      FADE IN ANIMATION
 =============================================================== */
 /* Fade in animation when scrolling with intersection observer */
@@ -130,72 +182,6 @@ tl5.from(".contactInformation", { duration: 0.6, opacity: 0, y: 20 }, "-=0.4");
 tl5.from(".contactQuestions", { duration: 0.5, opacity: 0, y: 20 }, "-=0.4");
 tl5.from(".contactSection", { duration: 0.5, opacity: 0, y: 30 }, "-=0.3");
 tl5.from(".contactSendButton", { duration: 0.5, opacity: 0, y: 15 }, "-=0.2");
-
-/* ============================================================
-                    HAMBURGER ANIMATION
-=============================================================== */
-const hamburgerMenu = document.querySelector(".hamburgerMenu");
-const body = document.querySelector("body");
-
-/* When clicking on the hamburger menu */
-hamburgerMenu.addEventListener("click", () => {
-  hamburgerMenu.classList.toggle("openNav");
-  body.classList.toggle("noScroll");
-});
-
-/* When clicking outside the navigation bar when it's open */
-window.addEventListener("click", (event) => {
-  if (event.target !== hidingNavBar && event.target !== hamburgerMenu) {
-    hamburgerMenu.classList.remove("openNav");
-    body.classList.remove("noScroll");
-    hidingNavBar.classList.remove("activeMainBar");
-  }
-});
-
-/* ============================================================
-                    OPEN MAIN NAVIGATION
-=============================================================== */
-const hidingNavBar = document.querySelector(".navBarList");
-
-hamburgerMenu.addEventListener("click", () => {
-  hidingNavBar.classList.toggle("activeMainBar");
-});
-
-/* ============================================================
-                    OPEN SECONDARY NAVIGATION
-=============================================================== */
-const subListOpener = document.querySelectorAll(".navItem");
-const subList = document.querySelectorAll(".subItem");
-
-for (let i = 0; i < subListOpener.length; i++) {
-  subListOpener[i].addEventListener("click", () => {
-    subList[i].classList.toggle("activeSubBar");
-  });
-}
-
-/* ============================================================
-                   ROTATE MAIN NAVIGATION ARROW 
-=============================================================== */
-for (let j = 0; j < subListOpener.length; j++) {
-  subListOpener[j].addEventListener("click", () => {
-    subListOpener[j].classList.toggle("rotateArrow");
-  });
-}
-
-/* ============================================================
-                    STICKY NAVIGATION
-=============================================================== */
-let previousScrollPos = window.pageYOffset;
-
-window.addEventListener("scroll", () => {
-  let currentScrollPos = window.pageYOffset;
-  if (previousScrollPos > currentScrollPos) {
-    document.querySelector(".header").style.top = "0";
-  } else {
-    document.querySelector(".header").style.top = "-1000px";
-  }
-  previousScrollPos = currentScrollPos;
-});
 
 /* ============================================================
               CHANGE COFFEE PRICE WHIT THE WEIGHT
