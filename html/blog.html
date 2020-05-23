@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles.css" />
     <script
       src="https://kit.fontawesome.com/b47e174771.js"
@@ -14,8 +18,9 @@
     <!-----------------NAVIGATION BAR---------------------------->
     <header class="header">
       <div class="visibleNavBar">
-        <div class="hamburgerMenu">
+        <div class="hamburgerMenuContainer">
           <div class="hamburgerMiddleBar"></div>
+          <div class="hamburgerMenu"></div>
         </div>
         <a href="index.html" class="logo"></a>
         <div class="shoppingCartLogoContainer">
@@ -94,7 +99,7 @@
               ></a>
             </li>
             <li>
-              <a href=""
+              <a href="returnPolicy.html"
                 >Return Policy
                 <i class="fa fa-chevron-right" aria-hidden="true"></i
               ></a>
@@ -115,14 +120,12 @@
     </p>
     <div class="mainBlogContainer">
       <div class="blogContainer">
-        <a href="" class="pictureblogTag"
+        <a href="article1.html" class="pictureblogTag"
           ><img class="blogPicture" src="../images/coffeeBean.jpg" alt=""
         /></a>
         <div class="blogTextContainer">
           <h2 class="blogName">
-            <a href=""
-              >Difference between Light, Medium and Dark Roast in Coffee</a
-            >
+            <a href="article1.html">Roasting Levels in Coffee</a>
           </h2>
           <div class="blogText">
             Knowing the different roasting levels in coffee is as important as
@@ -132,40 +135,40 @@
         </div>
         <div class="readMoreContainer">
           <p class="blogDate">May 01, 2020</p>
-          <a href="" class="viewMoreButton"
+          <a href="article1.html" class="viewMoreButton"
             >View more<i class="fa fa-chevron-right" aria-hidden="true"></i
           ></a>
         </div>
       </div>
       <div class="blogContainer">
-        <a href="" class="pictureblogTag"
+        <a href="article2.html" class="pictureblogTag"
           ><img class="blogPicture" src="../images/roasting.jpg" alt=""
         /></a>
         <div class="blogTextContainer">
           <h2 class="blogName">
-            <a href=""
-              >4 Types of Roasting That Determine the Character of Coffee</a
-            >
+            <a href="article2.html">4 Types of Roasting</a>
           </h2>
           <div class="blogText">
             Delicious coffee can not be separated from the services of skilled
             hands who plant and mix. It is a long process to get to coffee
-            lovers Well, one important stage in...
+            lovers. Well, one important stage in...
           </div>
         </div>
         <div class="readMoreContainer">
           <p class="blogDate">April 11, 2020</p>
-          <a href="" class="viewMoreButton"
+          <a href="article2.html" class="viewMoreButton"
             >View more<i class="fa fa-chevron-right" aria-hidden="true"></i
           ></a>
         </div>
       </div>
       <div class="blogContainer">
-        <a href="" class="pictureblogTag"
+        <a href="article3.html" class="pictureblogTag"
           ><img class="blogPicture" src="../images/toraja.jpg" alt=""
         /></a>
         <div class="blogTextContainer">
-          <h2 class="blogName"><a href="">What is Toraja Coffee</a></h2>
+          <h2 class="blogName">
+            <a href="article3.html">What is Toraja Coffee</a>
+          </h2>
           <div class="blogText">
             The history of this type of coffee has existed from the Dutch era
             first. The Toraja region is famous for being the largest producer of
@@ -174,26 +177,27 @@
         </div>
         <div class="readMoreContainer">
           <p class="blogDate">March 20, 2020</p>
-          <a href="" class="viewMoreButton"
+          <a href="article3.html" class="viewMoreButton"
             >View more<i class="fa fa-chevron-right" aria-hidden="true"></i
           ></a>
         </div>
       </div>
       <div class="blogContainer">
-        <a href="" class="pictureblogTag"
-          ><img class="blogPicture" src="../images/localcoffee.jpg" alt=""
+        <a href="article4.html" class="pictureblogTag"
+          ><img class="blogPicture" src="../images/specialtyCoffee.jpg" alt=""
         /></a>
         <div class="blogTextContainer">
-          <h2 class="blogName"><a href="">What is Specialty Coffee</a></h2>
+          <h2 class="blogName">
+            <a href="article4.html">What is Specialty Coffee</a>
+          </h2>
           <div class="blogText">
             Specialty coffee is a conversation that is definitely revealed if we
-            are discussing coffee or doing coffee business, nowadays the name
-            coffee is...
+            are discussing coffee or doing coffee business, nowadays the name...
           </div>
         </div>
         <div class="readMoreContainer">
           <p class="blogDate">February 16, 2020</p>
-          <a href="" class="viewMoreButton"
+          <a href="article4.html" class="viewMoreButton"
             >View more<i class="fa fa-chevron-right" aria-hidden="true"></i
           ></a>
         </div>
@@ -201,12 +205,12 @@
     </div>
     <!--------------------------MAILING LIST---------------------------->
     <div class="mailingListContainer">
-      <h1>Stay Connected</h1>
-      <p>
+      <h1 class="fadeIn">Stay Connected</h1>
+      <p class="fadeIn">
         Register for emails updates to stay up-to-date with our new products and
         promotions.
       </p>
-      <form action="">
+      <form action="" class="fadeIn">
         <input type="text" placeholder="Email Address" required />
         <input type="submit" value="Sign Up" class="mailingSignUp" />
       </form>
@@ -214,13 +218,13 @@
     <!-----------------------------FOOTER---------------------------->
     <footer>
       <div class="footerMainContainer">
-        <div class="footerLogoContainer">
+        <div class="footerLogoContainer fadeIn">
           <div class="leftLine"></div>
           <a href="index.html" class="footerLogo"></a>
           <div class="rightLine"></div>
         </div>
         <div class="footerContainer">
-          <div class="footerPrincipalSection">
+          <div class="footerPrincipalSection fadeIn">
             <div class="footerSubSection">
               <h5 class="subSectionTitle">Shop</h5>
               <a href="#">Coffee</a>
@@ -241,16 +245,16 @@
               <h5 class="subSectionTitle">Ressources</h5>
               <a href="blog.html">Blog</a>
               <a href="contact.html">Contact</a>
-              <a href="#">Return Policy</a>
+              <a href="returnPolicy.html">Return Policy</a>
             </div>
           </div>
-          <div class="footerSocialIcons">
+          <div class="footerSocialIcons fadeIn">
             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
           </div>
         </div>
-        <p class="footerRigths">
+        <p class="footerRigths fadeIn">
           2020 Goat Kicker Coffee Co. All rigths reserved.
         </p>
       </div>
