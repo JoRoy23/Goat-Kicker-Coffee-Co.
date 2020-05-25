@@ -8,10 +8,26 @@ body {
   padding: 0;
 }
 body.noScroll {
-  height: 100vh;
   overflow-y: hidden;
 }
 
+/* ============================================================
+                      BACKDROP
+=============================================================== */
+.backdrop {
+  position: fixed;
+  top: -2000px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  transition: background 0.5s ease-in-out;
+}
+.backdrop.activeMainBar {
+  top: 0;
+  background: rgba(230, 230, 230, 0.7);
+  transition: background 0.5s ease-in-out;
+}
 /* ============================================================
                     NAVIGATION BAR
 =============================================================== */
@@ -23,6 +39,7 @@ body.noScroll {
   width: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
   transition: top 0.5s;
 }
 .visibleNavBar {
@@ -516,19 +533,24 @@ body.noScroll {
 /* ============================================================
                            MENU
 =============================================================== */
+.menuBackgroundContainer {
+  width: 100%;
+}
+.menuMainContainer {
+  width: 100%;
+}
 .menuTitle,
 .locationTitle,
 .contactTitle,
 .blogTitle {
   width: 100%;
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
   padding: 95px 0 0 0;
   text-align: center;
   font-size: 3rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
-  background: linear-gradient(rgba(239, 239, 239, 1), rgba(255, 255, 255, 1));
 }
 .menuContainer {
   width: 100%;
@@ -584,20 +606,19 @@ body.noScroll {
 /* ============================================================
                     LOCATION AND BLOG
 =============================================================== */
-.blogDescription,
-.locationDescription {
-  width: 65%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: rgba(70, 70, 70, 1);
-  display: none;
+.blogBackgroundContainer,
+.locationBackgroundContainer {
+  width: 100%;
+  padding-bottom: 90px;
 }
 .mainBlogContainer,
 .locationContainer {
   width: 85%;
-  margin: 30px auto 80px;
+  margin: 0 auto;
+}
+.blogsContainer,
+.shopsLocationContainer {
+  width: 100%;
 }
 .blogContainer,
 .shopLocationContainer {
@@ -606,7 +627,17 @@ body.noScroll {
 }
 .blogContainer:last-of-type,
 .shopLocationContainer:last-of-type {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
+}
+.blogDescription,
+.locationDescription {
+  width: 65%;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: rgba(70, 70, 70, 1);
+  display: none;
 }
 .pictureblogTag,
 .pictureLocationTag {
@@ -745,8 +776,13 @@ body.noScroll {
 /* ============================================================
                          ARTICLE
 =============================================================== */
-.articleFirstContainer {
+.articleBackgroundContainer {
   width: 100%;
+}
+.articleMainContainer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0 60px;
 }
 .article4MainPhoto,
 .article3MainPhoto,
@@ -771,21 +807,17 @@ body.noScroll {
   background: url("images/specialtyCoffee.jpg") no-repeat center;
   background-size: cover;
 }
-.articleMainContainer {
-  width: 85%;
-  margin: 0 auto;
-  padding: 20px 0 60px;
-}
 .articleDate {
   display: block;
   width: 100%;
+  margin-top: 10px;
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
 }
 .articleTitle {
-  width: 100%;
+  width: 85%;
   margin: 10px auto 35px;
   text-align: center;
   font-size: 2rem;
@@ -794,14 +826,16 @@ body.noScroll {
   color: rgba(157, 132, 96, 1);
 }
 .articleMainContainer p {
-  margin-bottom: 30px;
+  width: 85%;
+  margin: 0 auto 30px;
   text-align: justify;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
 .articleSubtitle {
   display: block;
-  margin-bottom: 10px;
+  width: 85%;
+  margin: 0 auto 10px;
   font-size: 1.2rem;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.8);
@@ -832,6 +866,9 @@ body.noScroll {
 /* ============================================================
                           CONTACT
 =============================================================== */
+.contactBackgroundContainer {
+  width: 100%;
+}
 .contactMainContainer {
   width: 100%;
 }
@@ -973,7 +1010,6 @@ body.noScroll {
 .returnPolicySecondContainer {
   width: 100%;
   height: 100%;
-  border: 1px solid red;
 }
 .returnPolicyPicture {
   width: 100%;
@@ -985,7 +1021,6 @@ body.noScroll {
   width: 85%;
   margin: 0 auto;
   padding: 20px 0 0;
-  border: 1px solid blue;
 }
 .returnPolicyTitle {
   width: 100%;
@@ -1128,7 +1163,7 @@ footer {
   color: rgba(70, 70, 70, 1);
 }
 .footerSubSection a {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
   text-decoration: none;
   letter-spacing: 1px;
@@ -1221,17 +1256,28 @@ footer {
   }
 
   /* FOR THE MENU */
+  .menuBackgroundContainer {
+    padding-top: 35px;
+    background: rgba(220, 220, 220, 0.2);
+  }
+  .menuMainContainer {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-bottom: 90px;
+    background: rgba(255, 255, 255, 1);
+  }
   .blogTitle,
   .contactTitle,
   .locationTitle,
   .menuTitle {
-    padding: 130px 0 0 0;
-    margin-bottom: 30px;
+    width: calc(100% - 40px);
+    padding: 110px 0 0 0;
     font-size: 5rem;
+    background: rgba(255, 255, 255, 1);
   }
   .menuContainer {
     width: 70%;
-    margin: 40px auto 90px;
+    margin: 40px auto 0;
     padding-bottom: 50px;
     background: rgba(240, 240, 240, 1);
   }
@@ -1243,6 +1289,22 @@ footer {
   }
 
   /* FOR THE LOCATION AND BLOG */
+  .blogBackgroundContainer,
+  .locationBackgroundContainer {
+    padding: 35px 0 0;
+    background: rgba(220, 220, 220, 0.2);
+  }
+  .mainBlogContainer,
+  .locationContainer {
+    width: calc(100% - 40px);
+    background: rgba(255, 255, 255, 1);
+    padding-bottom: 90px;
+  }
+  .blogsContainer,
+  .shopsLocationContainer {
+    width: 90%;
+    margin: 0 auto;
+  }
   .blogDescription,
   .locationDescription {
     display: block;
@@ -1252,9 +1314,6 @@ footer {
   }
   .locationAddressContainer {
     height: 230px;
-  }
-  .blogTextContainer {
-    height: 280px;
   }
   .locationPhoneNumber,
   .locationAddress {
@@ -1294,6 +1353,9 @@ footer {
   .viewMoreButton {
     width: 180px;
   }
+  .blogTextContainer {
+    height: 280px;
+  }
   .blogName a {
     font-size: 2.8rem;
   }
@@ -1303,6 +1365,16 @@ footer {
   }
 
   /* FOR THE ARTICLE */
+  .articleBackgroundContainer {
+    padding-top: 35px;
+    background: rgba(220, 220, 220, 0.2);
+  }
+  .articleMainContainer {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 0 0 90px;
+    background: rgba(255, 255, 255, 1);
+  }
   .article4MainPhoto,
   .article3MainPhoto,
   .article1MainPhoto,
@@ -1310,15 +1382,15 @@ footer {
     width: 100%;
     height: 450px;
   }
-  .articleMainContainer {
-    padding: 20px 0 90px;
-  }
-  .articleMainContainer p {
-    font-size: 1.2rem;
+  .articleDate {
+    margin-top: 20px;
   }
   .articleTitle {
     margin: 10px auto 45px;
     font-size: 3rem;
+  }
+  .articleMainContainer p {
+    font-size: 1.2rem;
   }
   .articleSubtitle {
     font-size: 1.3rem;
@@ -1334,8 +1406,15 @@ footer {
   }
 
   /* FOR THE CONTACT */
+  .contactBackgroundContainer {
+    padding-top: 35px;
+    background: rgba(220, 220, 220, 0.2);
+  }
   .contactMainContainer {
-    height: 100vh;
+    width: calc(100% - 40px);
+    height: calc(100vh - 35px);
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
   }
   .contactGrid {
     grid-template-columns: 1fr 1fr;
@@ -1354,6 +1433,9 @@ footer {
   }
   .contactInformation span {
     font-size: 1.4rem;
+  }
+  .contactSection .sectionTitle {
+    font-size: 0.9rem;
   }
   .contactSendButton {
     padding: 15px 45px;
@@ -1429,6 +1511,12 @@ footer {
   }
 
   /* FOR THE MENU */
+  .blogTitle,
+  .contactTitle,
+  .locationTitle,
+  .menuTitle {
+    font-size: 6rem;
+  }
   .menuContainer {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1444,23 +1532,24 @@ footer {
   }
 
   /* FOR THE LOCATION AND BLOG */
-  .mainBlogContainer,
-  .locationContainer {
+  .blogDescription,
+  .locationDescription {
+    margin: 0 auto 60px;
+  }
+  .blogsContainer,
+  .shopsLocationContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
   .blogContainer,
   .shopLocationContainer {
-    width: 48.5%;
+    width: 47.5%;
+    margin-bottom: 40px;
   }
-  .blogContainer:nth-child(3),
-  .shopLocationContainer:nth-child(3) {
-    margin-bottom: 0;
-  }
-  .blogContainer:nth-child(4),
-  .shopLocationContainer:nth-child(4) {
-    margin-bottom: 0;
+  .blogContainer:last-of-type,
+  .shopLocationContainer:last-of-type {
+    margin-bottom: 40px;
   }
   .locationAddress {
     width: 85%;
@@ -1489,9 +1578,6 @@ footer {
   }
 
   /* FOR THE ARTICLE */
-  .articleFirstContainer {
-    background-color: rgba(220, 220, 220, 0.2);
-  }
   .article4MainPhoto,
   .article3MainPhoto,
   .article1MainPhoto,
@@ -1501,9 +1587,7 @@ footer {
     margin: 0 auto;
   }
   .articleMainContainer {
-    width: 950px;
-    padding: 20px 40px 90px;
-    background: rgba(255, 255, 255, 1);
+    padding: 0 40px 90px;
   }
   .articleTitle {
     font-size: 4rem;
@@ -1518,23 +1602,28 @@ footer {
     height: 250px;
   }
   .contactGrid {
-    grid-gap: 50px;
     margin-top: 70px;
   }
 
   /* FOR THE RETURN POLICY */
   .returnPolicyMainContainer {
     background-color: rgba(220, 220, 220, 0.2);
-    border: 1px solid red;
   }
-  .returnPolicyPicture {
+  .returnPolicySecondContainer {
     width: 950px;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+  }
+  .returnPolicyPicture {
+    width: 100%;
   }
   .returnPolicyContainer {
-    width: 950px;
+    width: 100%;
     padding: 20px 40px 60px;
-    background: rgba(255, 255, 255, 1);
+  }
+  .returnPolicyContainer p {
+    width: 750px;
+    margin: 0 auto 30px;
   }
 
   /* FOR THE MAILING LIST */
@@ -1554,10 +1643,18 @@ footer {
   }
 }
 @media screen and (min-width: 1200px) {
+  /* FOR THE MENU */
+  .menuContainer {
+    width: 1000px;
+  }
   /* FOR THE LOCATION AND BLOG */
-  .mainBlogContainer,
-  .locationContainer {
-    width: 1150px;
+  .blogsContainer,
+  .shopsLocationContainer {
+    width: 1070px;
+  }
+  .blogDescription,
+  .locationDescription {
+    width: 750px;
   }
   .blogText {
     margin: 30px auto 15px;

@@ -8,6 +8,7 @@ const body = document.querySelector("body");
 const header = document.querySelector(".header");
 const subListOpener = document.querySelectorAll(".navItem");
 const subList = document.querySelectorAll(".subItem");
+const backdrop = document.querySelector(".backdrop");
 let previousScrollPos = window.pageYOffset;
 
 /* When clicking on the hamburger menu */
@@ -15,6 +16,7 @@ hamburgerMenu.addEventListener("click", () => {
   hamburgerContainer.classList.toggle("openNav");
   body.classList.toggle("noScroll");
   hidingNavBar.classList.toggle("activeMainBar");
+  backdrop.classList.toggle("activeMainBar");
 });
 
 window.addEventListener("click", function (event) {
