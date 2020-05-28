@@ -53,6 +53,18 @@ window.addEventListener("scroll", () => {
 });
 
 /* ============================================================
+                       HOME PAGE
+=============================================================== */
+/* Move the best seller container when the width of the window is bigger then 768px */
+window.addEventListener("resize", () => {
+  if ($(window).width() >= 768) {
+    $(".homeBestSellerDescriptionContainer").appendTo(".homeBackgroundImage");
+  } else {
+    $(".homeBestSellerDescriptionContainer").appendTo(".homePageContainer");
+  }
+});
+
+/* ============================================================
                      FADE IN ANIMATION
 =============================================================== */
 /* Fade in animation when scrolling with intersection observer */
@@ -60,7 +72,7 @@ const faders = document.querySelectorAll(".fadeIn");
 
 const options = {
   root: null,
-  threshold: 1,
+  threshold: 0.65,
 };
 
 const fadeInOnScroll = new IntersectionObserver((entries) => {
@@ -82,25 +94,26 @@ faders.forEach((fader) => {
                 OPEN HOME PAGE ANIMATION GSAP
 =============================================================== */
 let tl = gsap.timeline({ default: { ease: "power2" } });
-tl.from(".header", { duration: 0.7, opacity: 0, y: -100 });
-tl.from(
-  ".homeBackgroundImage",
-  {
-    duration: 0.6,
-    opacity: 0,
-  },
-  0.2
-);
-tl.from(".bestSellerPicture", { duration: 0.7, y: -210, opacity: 0 });
-tl.from(
-  ".homeBestSellerDescriptionContainer",
-  {
-    duration: 0.5,
-    y: 30,
-    opacity: 0,
-  },
-  "+=0.1"
-);
+
+// tl.from(".header", { duration: 0.7, opacity: 0, y: -100 });
+// tl.from(
+//   ".homeBackgroundImage",
+//   {
+//     duration: 1,
+//     opacity: 0,
+//   },
+//   0.2
+// );
+// tl.from(".bestSellerPicture", { duration: 0.7, y: -210, opacity: 0 }, "-=0.5");
+// // tl.from(
+// //   ".homeBestSellerDescriptionContainer",
+// //   {
+// //     duration: 0.5,
+// //     y: 20,
+// //     opacity: 0,
+// //   },
+// //   "-=0.1"
+// // );
 
 /* ============================================================
                 BEST SELLER PAGE ANIMATION GSAP
