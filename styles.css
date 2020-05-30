@@ -322,9 +322,14 @@ body.noScroll {
   font-size: 0.6rem;
   margin-left: 5px;
 }
+.ideaDescriptionMainContainer {
+  width: 100%;
+  background: rgba(220, 220, 220, 0.3);
+}
+.ideaDescriptionContainerStory,
 .ideaDescriptionContainer {
+  width: 100%;
   padding: 40px 0;
-  background: rgba(220, 220, 220, 0.2);
   line-height: 1.5;
 }
 .ideaTitle span,
@@ -600,6 +605,75 @@ body.noScroll {
   border: 2px solid rgba(157, 132, 96, 1);
   transition: background 0.5s;
 }
+
+/* ============================================================
+                         OUR STORY 
+=============================================================== */
+.ourStoryMainContainer,
+.ourStoryBackgroundContainer {
+  width: 100%;
+}
+.ourStoryMainContainer {
+  padding-bottom: 60px;
+}
+.ourStoryMainPicture {
+  width: 100%;
+  position: relative;
+}
+.ourStoryMainPicture img {
+  display: block;
+  width: 100%;
+}
+.ourStoryTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+  font-size: 2.6rem;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  color: rgba(255, 255, 255, 1);
+}
+.ourStoryPicturesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.ourStoryFirstPicture {
+  width: 85%;
+  margin: 30px 0 0 0;
+}
+.ourStorySecondPicture {
+  width: 85%;
+  margin: 30px 0 30px;
+}
+.ourStoryThirdPicture {
+  width: 85%;
+  margin: 0 auto 30px;
+}
+.ourStoryThirdPicture img,
+.ourStorySecondPicture img,
+.ourStoryFirstPicture img {
+  width: 100%;
+}
+.storyText {
+  width: 85%;
+  margin: 0 auto 30px;
+  text-align: justify;
+  line-height: 1.5;
+  color: rgba(70, 70, 70, 1);
+}
+.storySubtitle {
+  width: 85%;
+  margin: 0 auto 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  color: rgba(70, 70, 70, 1);
+}
 /* ============================================================
                            MENU
 =============================================================== */
@@ -852,30 +926,19 @@ body.noScroll {
 .articleMainContainer {
   width: 100%;
   margin: 0 auto;
-  padding: 20px 0 60px;
+  padding: 0 0 60px;
 }
 .article4MainPhoto,
 .article3MainPhoto,
 .article1MainPhoto,
 .article2MainPhoto {
   width: 100%;
-  height: 310px;
 }
-.article1MainPhoto {
-  background: url("images/coffeeBean.jpg") no-repeat center;
-  background-size: cover;
-}
-.article2MainPhoto {
-  background: url("images/roasting.jpg") no-repeat center;
-  background-size: cover;
-}
-.article3MainPhoto {
-  background: url("images/toraja.jpg") no-repeat center;
-  background-size: cover;
-}
-.article4MainPhoto {
-  background: url("images/specialtyCoffee.jpg") no-repeat center;
-  background-size: cover;
+.article1MainPhoto img,
+.article2MainPhoto img,
+.article3MainPhoto img,
+.article4MainPhoto img {
+  width: 100%;
 }
 .articleDate {
   display: block;
@@ -907,7 +970,7 @@ body.noScroll {
   width: 85%;
   margin: 0 auto 10px;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 900;
   color: rgba(0, 0, 0, 0.8);
 }
 .nextArticle {
@@ -1077,7 +1140,6 @@ body.noScroll {
   width: 100%;
   height: 100vh;
 }
-
 .returnPolicyMainContainer,
 .returnPolicyDescriptionContainer {
   width: 100%;
@@ -1085,12 +1147,12 @@ body.noScroll {
 }
 .returnPolicyPicture {
   width: 100%;
-  height: 300px;
-  background: url("images/returnPolicy.jpg") no-repeat center;
-  background-size: cover;
+}
+.returnPolicyPicture img {
+  width: 100%;
 }
 .returnPolicyContainer {
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
   padding: 20px 0 0;
 }
@@ -1098,7 +1160,7 @@ body.noScroll {
   width: 100%;
   margin: 0 auto 30px;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.9rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
@@ -1107,6 +1169,7 @@ body.noScroll {
   width: 100%;
   margin-bottom: 30px;
   text-align: justify;
+  line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
 /* ============================================================
@@ -1115,9 +1178,9 @@ body.noScroll {
 .mailingListContainer {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 400px;
   padding: 20px 0;
-  background-color: rgba(220, 220, 220, 0.2);
+  background: rgba(220, 220, 220, 0.3);
 }
 .mailingListContainer:before {
   position: absolute;
@@ -1125,12 +1188,12 @@ body.noScroll {
   height: 100%;
   content: "";
   background: url("./images/goatBackground.png") no-repeat center;
-  background-size: 300px;
+  background-size: 400px;
   z-index: -1;
 }
 .mailingListContainer h1 {
   width: 100%;
-  margin: 0 auto;
+  margin: 60px auto 0;
   text-align: center;
   font-size: 2.1rem;
   font-weight: lighter;
@@ -1162,6 +1225,8 @@ body.noScroll {
   font-size: 0.9rem;
   letter-spacing: 1.1px;
   border: none;
+  color: rgba(140, 140, 140, 1);
+  background: rgba(255, 255, 255, 0.8);
 }
 .mailingSignUp {
   width: 85px;
@@ -1337,8 +1402,8 @@ footer {
   /* FOR THE HOME PAGE */
   .homePageMainContainer {
     width: calc(100% - 40px);
-    background: rgba(255, 255, 255, 1);
     margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
   }
   .homeBackgroundImage:before {
     position: absolute;
@@ -1351,12 +1416,12 @@ footer {
   }
   .homeBestSellerContainer {
     bottom: -135px;
-    left: 40px;
+    left: 25px;
     transform: translate(0, 0);
   }
   .homeBestSellerDescriptionContainer {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     right: 5px;
     width: 50%;
     height: 55%;
@@ -1371,6 +1436,7 @@ footer {
     font-weight: 900;
     text-align: justify;
     color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   }
   .bestSellerSubtitle {
     margin: 5px 0 15px 0;
@@ -1378,6 +1444,7 @@ footer {
     font-weight: 900;
     text-align: justify;
     color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   }
   .ideaDescriptionContainer {
     padding: 120px 0 90px;
@@ -1423,10 +1490,41 @@ footer {
     transition: transform 0.3s ease-out;
   }
 
+  /* FOR OUR STORY */
+  .ourStoryMainContainer {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+    padding-bottom: 90px;
+  }
+  .ourStoryTitle {
+    font-size: 5rem;
+    transform: translate(-50%, -70%);
+  }
+  .ideaDescriptionContainerStory {
+    padding: 60px 0;
+  }
+  .ourStoryPicturesContainer {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .ourStorySecondPicture,
+  .ourStoryFirstPicture {
+    width: 39%;
+    margin: 50px 0 40px;
+  }
+  .storyText {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  .storySubtitle {
+    font-size: 1.4rem;
+  }
+
   /* FOR THE MENU */
   .menuBackgroundContainer {
     padding-top: 35px;
-    background: rgba(220, 220, 220, 0.2);
+    background: rgba(220, 220, 220, 0.3);
   }
   .menuMainContainer {
     width: calc(100% - 40px);
@@ -1457,11 +1555,15 @@ footer {
   }
 
   /* FOR THE LOCATION AND BLOG */
+  .ourStoryBackgroundContainer,
+  .returnPolicyBackgroundContainer,
+  .contactBackgroundContainer,
+  .articleBackgroundContainer,
   .homePageBackgroundContainer,
   .blogBackgroundContainer,
   .locationBackgroundContainer {
     padding: 35px 0 0;
-    background: rgba(220, 220, 220, 0.2);
+    background: rgba(220, 220, 220, 0.3);
   }
   .mainBlogContainer,
   .locationContainer {
@@ -1500,7 +1602,7 @@ footer {
   .locationWeekend,
   .locationWeekDay {
     width: 30%;
-    margin: 0 10px 40px;
+    margin: 0 30px 40px;
   }
   .weekendsTime,
   .weekDaysTime {
@@ -1534,22 +1636,18 @@ footer {
   }
 
   /* FOR THE ARTICLE */
-  .articleBackgroundContainer {
-    padding-top: 35px;
-    background: rgba(220, 220, 220, 0.2);
-  }
   .articleMainContainer {
     width: calc(100% - 40px);
     margin: 0 auto;
-    padding: 0 0 90px;
+    padding: 40px 0 90px;
     background: rgba(255, 255, 255, 1);
   }
   .article4MainPhoto,
   .article3MainPhoto,
   .article1MainPhoto,
   .article2MainPhoto {
-    width: 100%;
-    height: 450px;
+    width: 85%;
+    margin: 0 auto;
   }
   .articleDate {
     margin-top: 20px;
@@ -1563,7 +1661,6 @@ footer {
   }
   .articleSubtitle {
     font-size: 1.3rem;
-    font-weight: 800;
   }
   .nextArticle {
     width: 190px;
@@ -1575,10 +1672,6 @@ footer {
   }
 
   /* FOR THE CONTACT */
-  .contactBackgroundContainer {
-    padding-top: 35px;
-    background: rgba(220, 220, 220, 0.2);
-  }
   .contactMainContainer {
     width: calc(100% - 40px);
     height: calc(100vh - 35px);
@@ -1612,16 +1705,18 @@ footer {
   }
 
   /* FOR THE RETURN POLICY */
-  .returnPolicyBackgroundContainer {
-    background: rgba(220, 220, 220, 0.2);
-  }
   .returnPolicyMainContainer {
     width: calc(100% - 40px);
     margin: 0 auto;
+    padding-top: 40px;
     background: rgba(255, 255, 255, 1);
   }
+  .returnPolicyContainer {
+    width: 85%;
+  }
   .returnPolicyPicture {
-    height: 600px;
+    width: 85%;
+    margin: 0 auto;
   }
   .returnPolicyTitle {
     margin: 0 auto 50px;
@@ -1634,17 +1729,18 @@ footer {
   /* FOR THE MAILING LIST */
   .mailingListContainer {
     margin-top: 0px;
-    height: 360px;
+    height: 550px;
   }
   .mailingListContainer:before {
-    background-size: 450px;
+    background-size: 650px;
   }
   .mailingListContainer h1 {
-    font-size: 2.4rem;
+    margin: 120px 0 0;
+    font-size: 2.6rem;
   }
   .mailingListContainer p {
-    width: 500px;
-    margin: 50px auto 70px;
+    width: 70%;
+    margin: 40px auto 50px;
     font-size: 1.2rem;
     line-height: 1.5;
   }
@@ -1660,7 +1756,7 @@ footer {
   /* FOR THE FOOTER */
   footer {
     padding: 0 20px 20px;
-    background: rgba(240, 240, 240, 0.4);
+    background: rgba(220, 220, 220, 0.3);
   }
   .footerMainContainer {
     background: rgba(255, 255, 255, 1);
@@ -1699,6 +1795,7 @@ footer {
     text-align: center;
     font-size: 9rem;
     color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   }
   .homeBestSellerContainer {
     bottom: -140px;
@@ -1720,25 +1817,32 @@ footer {
     margin: 5px 0 15px 0;
   }
   .ideaDescriptionContainer {
-    padding: 140px 60px 90px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    padding: 120px 60px 90px;
   }
   .ideaTitle span,
   .ideaTitle {
-    flex-grow: 1;
+    width: 500px;
     margin-right: 50px;
+    font-size: 1.9rem;
   }
   .ideaDescription {
-    width: 46%;
+    width: 400px;
   }
   .featuredItemsContainer {
     width: 900px;
     margin: 0 auto;
   }
 
+  /* FOR OUR STORY */
+  .ourStoryMainContainer {
+    padding-top: 40px;
+  }
+
   /* FOR THE MENU */
+  .ourStoryTitle,
   .blogTitle,
   .contactTitle,
   .locationTitle,
@@ -1806,25 +1910,16 @@ footer {
   }
 
   /* FOR THE ARTICLE */
-  .article4MainPhoto,
-  .article3MainPhoto,
-  .article1MainPhoto,
-  .article2MainPhoto {
-    width: 950px;
-    height: 500px;
-    margin: 0 auto;
-  }
-  .articleMainContainer {
-    padding: 0 40px 90px;
-  }
   .articleTitle {
     font-size: 4rem;
   }
 
   /* FOR THE CONTACT */
+  .contactMainContainer {
+    padding: 0 0 60px;
+  }
   .contactContainer {
     width: 900px;
-    margin: 50px auto 60px;
   }
   .contactTextArea {
     height: 250px;
@@ -1832,21 +1927,19 @@ footer {
   .contactGrid {
     margin-top: 70px;
   }
-
-  /* FOR THE RETURN POLICY */
-  .returnPolicyDescriptionContainer {
-    width: 950px;
-    margin: 0 auto;
-  }
   .returnPolicyPicture {
-    width: 100%;
+    width: 900px;
+    height: 550px;
+  }
+  .returnPolicyPicture img {
+    height: 100%;
   }
   .returnPolicyContainer {
     width: 100%;
-    padding: 20px 40px 60px;
+    padding: 20px 0 60px;
   }
   .returnPolicyContainer p {
-    width: 750px;
+    width: 900px;
     margin: 0 auto 30px;
   }
 
@@ -1869,32 +1962,50 @@ footer {
 
 @media screen and (min-width: 1200px) {
   /* FOR THE HOME PAGE */
+  .homePageMainContainer {
+    padding-top: 40px;
+  }
   .homeBackgroundImage {
     width: 1000px;
     margin: 0 auto;
   }
   .ideaDescriptionContainer {
-    width: 1000px;
-    margin: 0 auto;
-    padding: 150px 60px 90px;
-  }
-  .ideaTitle span,
-  .ideaTitle {
-    flex-grow: 1;
-    margin-right: 50px;
-  }
-  .ideaDescription {
-    width: 55%;
+    width: 1200px;
+    margin: 40px auto 0;
+    padding: 100px 60px 90px;
   }
   .featuredItemsContainer {
     width: 900px;
     margin: 0 auto;
   }
 
+  /* FOR OUR STORY */
+  .ourStoryMainContainer {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+    padding-bottom: 90px;
+  }
+  .ourStoryPicturesContainer {
+    width: 900px;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  .ourStoryFirstPicture,
+  .ourStorySecondPicture {
+    width: 47%;
+  }
+  .storyText,
+  .storySubtitle,
+  .ourStoryThirdPicture {
+    width: 900px;
+  }
+
   /* FOR THE MENU */
   .menuContainer {
     width: 1000px;
   }
+
   /* FOR THE LOCATION AND BLOG */
   .blogsContainer,
   .shopsLocationContainer {
@@ -1906,6 +2017,18 @@ footer {
   }
   .blogText {
     margin: 30px auto 15px;
+  }
+  /* FOR THE ARTICLE */
+  .article4MainPhoto,
+  .article3MainPhoto,
+  .article1MainPhoto,
+  .article2MainPhoto {
+    width: 900px;
+    margin: 0 auto;
+  }
+  .articleSubtitle,
+  .articleMainContainer p {
+    width: 900px;
   }
 }
 .content {
