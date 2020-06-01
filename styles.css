@@ -607,8 +607,10 @@ body.noScroll {
 }
 
 /* ============================================================
-                         OUR STORY 
+                  OUR STORY AND OUR PROCESS
 =============================================================== */
+.ourProcessMainContainer,
+.ourProcessBackgroundContainer,
 .ourStoryMainContainer,
 .ourStoryBackgroundContainer {
   width: 100%;
@@ -616,63 +618,122 @@ body.noScroll {
 .ourStoryMainContainer {
   padding-bottom: 60px;
 }
+.ourProcessMainPicture,
 .ourStoryMainPicture {
   width: 100%;
   position: relative;
 }
+.ourProcessMainPicture img,
 .ourStoryMainPicture img {
   display: block;
   width: 100%;
 }
+.ourProcessTitle,
 .ourStoryTitle {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 90%;
   transform: translate(-50%, -40%);
   text-align: center;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
-  font-size: 2.6rem;
+  font-size: 3rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
   color: rgba(255, 255, 255, 1);
 }
+.ourProcessTitle {
+  transform: translate(-50%, -60%);
+}
+.factsDescriptionMainContainer {
+  padding: 30px 0 40px;
+  text-align: justify;
+  background: rgba(220, 220, 220, 0.3);
+}
+.factsTitle {
+  width: 85%;
+  margin: 0 auto 20px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  color: rgba(70, 70, 70, 1);
+}
+.factsDescription {
+  width: 85%;
+  margin: 0 auto;
+  line-height: 1.5;
+  color: rgba(140, 140, 140, 1);
+}
+.ourProcessDescriptionContainer,
+.ourStoryDescriptionContainer {
+  width: 85%;
+  margin: 0 auto;
+}
+.ourProcessDescriptionContainer {
+  padding: 20px 0;
+}
+.ourProcessPicturesContainer,
 .ourStoryPicturesContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+}
+.ourProcessPicturesContainer {
+  margin: 40px auto;
+}
+.ourProcessFirstPicture {
+  margin: 40px auto 50px;
+}
+.ourStoryThirdPicture,
+.ourProcessSecondPicture {
+  margin: 0 auto 30px;
+}
+.ourProcessThirdPicture {
+  margin: 0 auto;
 }
 .ourStoryFirstPicture {
-  width: 85%;
   margin: 30px 0 0 0;
 }
 .ourStorySecondPicture {
-  width: 85%;
   margin: 30px 0 30px;
 }
-.ourStoryThirdPicture {
-  width: 85%;
-  margin: 0 auto 30px;
-}
+.ourProcessThirdPicture img,
+.ourProcessSecondPicture img,
+.ourProcessFirstPicture img,
 .ourStoryThirdPicture img,
 .ourStorySecondPicture img,
 .ourStoryFirstPicture img {
+  display: block;
   width: 100%;
 }
+.processSteps {
+  padding: 0 0 0 25px;
+}
+.processStep,
+.processText,
 .storyText {
-  width: 85%;
   margin: 0 auto 30px;
   text-align: justify;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
+.processTitle,
+.processSubtitle,
 .storySubtitle {
-  width: 85%;
   margin: 0 auto 20px;
   font-size: 1.2rem;
   font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
+}
+.processTitle {
+  font-size: 2rem;
+}
+.processStep {
+  margin: 0 auto 20px;
+}
+.processStep:last-of-type {
+  margin: 0;
 }
 /* ============================================================
                            MENU
@@ -968,9 +1029,10 @@ body.noScroll {
 .articleSubtitle {
   display: block;
   width: 85%;
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
   color: rgba(0, 0, 0, 0.8);
 }
 .nextArticle {
@@ -1490,13 +1552,15 @@ footer {
     transition: transform 0.3s ease-out;
   }
 
-  /* FOR OUR STORY */
+  /* FOR OUR STORY AND OUR PROCESS */
+  .ourProcessMainContainer,
   .ourStoryMainContainer {
     width: calc(100% - 40px);
     margin: 0 auto;
     background: rgba(255, 255, 255, 1);
     padding-bottom: 90px;
   }
+  .ourProcessTitle,
   .ourStoryTitle {
     font-size: 5rem;
     transform: translate(-50%, -70%);
@@ -1504,19 +1568,48 @@ footer {
   .ideaDescriptionContainerStory {
     padding: 60px 0;
   }
+  .factsDescriptionMainContainer {
+    padding: 50px 0 60px;
+  }
+  .factsTitle {
+    font-size: 2.2rem;
+  }
+  .factsDescription {
+    font-size: 1.2rem;
+  }
+  .ourProcessDescriptionContainer {
+    padding: 30px 0;
+  }
+  .ourProcessPicturesContainer,
   .ourStoryPicturesContainer {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+  }
+  .ourProcessPicturesContainer {
+    margin: 40px auto 0;
+  }
+  .ourProcessThirdPicture,
+  .ourProcessSecondPicture {
+    width: 47%;
+    margin: 0;
   }
   .ourStorySecondPicture,
   .ourStoryFirstPicture {
-    width: 39%;
+    width: 47%;
     margin: 50px 0 40px;
   }
+  .processText,
   .storyText {
     font-size: 1.2rem;
     margin-bottom: 40px;
   }
+  .processStep {
+    font-size: 1.2rem;
+  }
+  .processTitle {
+    font-size: 2.5rem;
+  }
+  .processSubtitle,
   .storySubtitle {
     font-size: 1.4rem;
   }
@@ -1657,7 +1750,8 @@ footer {
     font-size: 3rem;
   }
   .articleMainContainer p {
-    font-size: 1.2rem;
+    margin: 0 auto 40px;
+    font-size: 1.4rem;
   }
   .articleSubtitle {
     font-size: 1.3rem;
@@ -1816,11 +1910,15 @@ footer {
   .bestSellerSubtitle {
     margin: 5px 0 15px 0;
   }
+  .ideaDescriptionContainerStory,
   .ideaDescriptionContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 120px 60px 90px;
+  }
+  .ideaDescriptionContainerStory {
+    padding: 70px 70px;
   }
   .ideaTitle span,
   .ideaTitle {
@@ -1836,9 +1934,28 @@ footer {
     margin: 0 auto;
   }
 
-  /* FOR OUR STORY */
+  /* FOR OUR STORY AND OUR PROCESS */
+  .ourProcessMainContainer,
   .ourStoryMainContainer {
     padding-top: 40px;
+  }
+  .ourProcessMainPicture,
+  .ourStoryMainPicture {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .factsDescriptionMainContainer {
+    margin-top: 40px;
+  }
+  .ourProcessDescriptionContainer {
+    padding-top: 40px;
+  }
+  .ourProcessTitle,
+  .ourStoryTitle {
+    transform: translate(-50%, -90%);
+  }
+  .ideaDescriptionContainerStory {
+    margin: 40px auto 0;
   }
 
   /* FOR THE MENU */
@@ -1929,7 +2046,6 @@ footer {
   }
   .returnPolicyPicture {
     width: 900px;
-    height: 550px;
   }
   .returnPolicyPicture img {
     height: 100%;
@@ -1979,26 +2095,34 @@ footer {
     margin: 0 auto;
   }
 
-  /* FOR OUR STORY */
-  .ourStoryMainContainer {
-    width: calc(100% - 40px);
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 1);
-    padding-bottom: 90px;
+  /* FOR OUR STORY AND OUR PROCESS */
+  .ideaDescriptionContainerStory {
+    width: 1200px;
   }
+  .ourProcessMainPicture,
+  .ourStoryMainPicture {
+    width: 900px;
+  }
+  .ourProcessPicturesContainer,
   .ourStoryPicturesContainer {
     width: 900px;
     margin: 0 auto;
     justify-content: space-between;
   }
-  .ourStoryFirstPicture,
-  .ourStorySecondPicture {
-    width: 47%;
-  }
+  .factsTitle,
+  .factsDescription,
+  .ourProcessFirstPicture,
+  .processTitle,
+  .processSubtitle,
+  .processText,
   .storyText,
   .storySubtitle,
   .ourStoryThirdPicture {
     width: 900px;
+  }
+  .processSteps {
+    width: 900px;
+    margin: 0 auto;
   }
 
   /* FOR THE MENU */
@@ -2018,6 +2142,7 @@ footer {
   .blogText {
     margin: 30px auto 15px;
   }
+
   /* FOR THE ARTICLE */
   .article4MainPhoto,
   .article3MainPhoto,
@@ -2030,9 +2155,4 @@ footer {
   .articleMainContainer p {
     width: 900px;
   }
-}
-.content {
-  width: 100%;
-  height: 100vh;
-  background: #000;
 }
