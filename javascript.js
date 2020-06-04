@@ -180,10 +180,15 @@ const addToCartButton = document.querySelector(".addCoffeeToCard");
 const popUpWindowAddedCoffee = document.querySelector(".coffeeAddedContainer");
 const coffeeName = document.querySelector(".coffeeSelectionTitle");
 const coffeeNameAddedToPopup = document.querySelector(".coffeeNameAdded");
-const priceCoffeeAdded = document.querySelector(".beanPrice");
+const priceCoffee = document.querySelector(".beanPrice");
 const priceCoffeeAddedToPopup = document.querySelector(".price");
-const quantityCoffeeAdded = document.querySelector(".cardItemsAdded");
+const quantityCoffee = document.querySelector(".cardItemsAdded");
 const quantityCoffeeAddedToPopup = document.querySelector(".quantity");
+const sizeCoffee = document.querySelector(".weightSelection");
+const wholeBeanCoffee = document.querySelector(".wholeBean .beanDescription");
+const groundCoffee = document.querySelector(".ground .beanDescription");
+const sizeCoffeeAddedToPopup = document.querySelector(".coffeeSizeAdded span");
+const typeCoffeeAddedToPopup = document.querySelector(".coffeeTypeAdded span");
 const buttonClosePopUpWindow = document.querySelector(".exitContainerSymbol");
 
 /* Add information to the window popup when item added */
@@ -191,20 +196,28 @@ addToCartButton.addEventListener("click", () => {
   popUpWindowAddedCoffee.style.display = "flex";
   backdrop.classList.add("activeMainBar");
 
-  for (let l = 0; l < hidingNavBar.classList.length; l++) {
-    if (hidingNavBar.classList[l] === "activeMainBar") {
-      hidingNavBar.classList.remove("activeMainBar");
-    }
-  }
-  for (let m = 0; m < hamburgerMenu.classList.length; m++) {
-    if (hamburgerMenu.classList[m] === "openNav") {
-      hamburgerMenu.classList.remove("openNav");
-      openNav = false;
-    }
-  }
   coffeeNameAddedToPopup.innerHTML = coffeeName.innerHTML;
-  priceCoffeeAddedToPopup.innerHTML = priceCoffeeAdded.innerHTML;
-  quantityCoffeeAddedToPopup.innerHTML = quantityCoffeeAdded.value;
+  priceCoffeeAddedToPopup.innerHTML = priceCoffee.innerHTML;
+  quantityCoffeeAddedToPopup.innerHTML = quantityCoffee.value;
+  sizeCoffeeAddedToPopup.innerHTML = sizeCoffee.value;
+
+  if (wholeBeanSelected === true) {
+    typeCoffeeAddedToPopup.innerHTML = wholeBeanCoffee.innerHTML;
+  } else {
+    typeCoffeeAddedToPopup.innerHTML = groundCoffee.innerHTML;
+  }
+
+  // for (let l = 0; l < hidingNavBar.classList.length; l++) {
+  //   if (hidingNavBar.classList[l] === "activeMainBar") {
+  //     hidingNavBar.classList.remove("activeMainBar");
+  //   }
+  // }
+  // for (let m = 0; m < hamburgerMenu.classList.length; m++) {
+  //   if (hamburgerMenu.classList[m] === "openNav") {
+  //     hamburgerMenu.classList.remove("openNav");
+  //     openNav = false;
+  //   }
+  // }
 });
 
 /* Close the popup window when we click on the X */
