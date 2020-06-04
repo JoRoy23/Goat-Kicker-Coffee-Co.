@@ -97,9 +97,10 @@ faders.forEach((fader) => {
 });
 
 /* ============================================================
-                OPEN HOME PAGE ANIMATION GSAP
+                       ANIMATION GSAP
 =============================================================== */
 let tl = gsap.timeline({ default: { ease: "power2" } });
+let tl2 = gsap.timeline({ default: { ease: "power2" } });
 
 // tl.from(".header", { duration: 0.7, opacity: 0, y: -100 });
 // tl.from(
@@ -121,42 +122,39 @@ let tl = gsap.timeline({ default: { ease: "power2" } });
 // //   "-=0.1"
 // // );
 
-/* ============================================================
-                BEST SELLER PAGE ANIMATION GSAP
-=============================================================== */
-let tl2 = gsap.timeline({ default: { ease: "power2" } });
-tl2.from(
-  ".coffeePicture",
-  {
-    duration: 0.6,
-    opacity: 0,
-    y: -100,
-  },
-  "=+0.1"
-);
-tl2.from(
-  ".coffeeDescriptionContainer",
-  {
-    duration: 0.4,
-    y: 20,
-    opacity: 0,
-  },
-  "+=0.1"
-);
+// tl2.from(
+//   ".coffeeSelectionPicture",
+//   {
+//     duration: 0.6,
+//     opacity: 0,
+//     y: -100,
+//   },
+//   "=+0.1"
+// );
+// tl2.from(
+//   ".coffeeSelectionDescriptionContainer",
+//   {
+//     duration: 0.4,
+//     y: 20,
+//     opacity: 0,
+//   },
+//   "+=0.1"
+// );
 
 /* ============================================================
-              CHANGE COFFEE PRICE WHIT THE WEIGHT
+              CHANGE COFFEE PRICE WITH THE WEIGHT
 =============================================================== */
 let coffeePrice = document.querySelector(".coffeePrice");
 let coffeeWeightSelection = document.querySelector(".weightSelection");
 
 /* ============================================================
-          CHANGE BEAN BACKGROUND WITH SELECTION
+                      SELECTION PAGE
 =============================================================== */
 const wholeBeanSelect = document.querySelector(".wholeBean");
 const groundBeanSelect = document.querySelector(".ground");
 let wholeBeanSelected = true;
 
+/* Change style when a bean type is selected */
 wholeBeanSelect.addEventListener("click", () => {
   if (!wholeBeanSelected) {
     wholeBeanSelect.style.background = "rgba(240, 240, 240, 1)";
@@ -176,19 +174,23 @@ groundBeanSelect.addEventListener("click", () => {
 });
 
 /* ============================================================
-                COFFEE ADDED TO CART POPUP
+                       CART POPUP
 =============================================================== */
 const addToCartButton = document.querySelector(".addCoffeeToCard");
 const popUpWindowAddedCoffee = document.querySelector(".coffeeAddedContainer");
-const coffeeName = document.querySelector(".coffeeTitle");
+const coffeeName = document.querySelector(".coffeeSelectionTitle");
 const coffeeNameAddedToPopup = document.querySelector(".coffeeNameAdded");
 const priceCoffeeAdded = document.querySelector(".beanPrice");
 const priceCoffeeAddedToPopup = document.querySelector(".price");
 const quantityCoffeeAdded = document.querySelector(".cardItemsAdded");
 const quantityCoffeeAddedToPopup = document.querySelector(".quantity");
+const buttonClosePopUpWindow = document.querySelector(".exitContainerSymbol");
 
+/* Add information to the window popup when item added */
 addToCartButton.addEventListener("click", () => {
   popUpWindowAddedCoffee.style.display = "flex";
+  backdrop.classList.add("activeMainBar");
+
   for (let l = 0; l < hidingNavBar.classList.length; l++) {
     if (hidingNavBar.classList[l] === "activeMainBar") {
       hidingNavBar.classList.remove("activeMainBar");
@@ -205,11 +207,8 @@ addToCartButton.addEventListener("click", () => {
   quantityCoffeeAddedToPopup.innerHTML = quantityCoffeeAdded.value;
 });
 
-/* ============================================================
-                     CLOSE CART POPUP
-=============================================================== */
-const buttonClosePopUpWindow = document.querySelector(".exitContainerSymbol");
-
+/* Close the popup window when we click on the X */
 buttonClosePopUpWindow.addEventListener("click", () => {
   popUpWindowAddedCoffee.style.display = "none";
+  backdrop.classList.remove("activeMainBar");
 });

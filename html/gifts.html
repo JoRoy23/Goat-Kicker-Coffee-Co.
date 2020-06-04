@@ -7,6 +7,10 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles.css" />
     <script
       src="https://kit.fontawesome.com/b47e174771.js"
@@ -39,19 +43,13 @@
           </li>
           <ul class="subItem">
             <li>
-              <a href=""
+              <a href="coffee.html"
                 >Coffee <i class="fa fa-chevron-right" aria-hidden="true"></i
               ></a>
             </li>
             <li>
-              <a href=""
+              <a href="gifts.html"
                 >Gifts <i class="fa fa-chevron-right" aria-hidden="true"></i
-              ></a>
-            </li>
-            <li>
-              <a href=""
-                >My Account
-                <i class="fa fa-chevron-right" aria-hidden="true"></i
               ></a>
             </li>
           </ul>
@@ -108,66 +106,39 @@
             </li>
           </ul>
           <li class="socialIcons">
-            <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
           </li>
         </ul>
       </div>
     </header>
-    <!-----------------BEST SELLER SELECTION PAGE---------------------------->
-    <div class="coffeePictureContainer">
-      <div class="coffeePicture"></div>
-    </div>
-    <div class="coffeeDescriptionContainer">
-      <h1 class="coffeeTitle">Sumatra, Mandheling</h1>
-      <h3 class="coffeeSubtitle">
-        Our best-seller for the spring season. Rich satisfying flavour with
-        intense sweet tones of chocolate.
-      </h3>
-      <div class="beanPrice">$12.50</div>
-      <select name="" class="weightSelection">
-        <option value="0">10oz</option>
-        <option value="1">5lbs</option>
-      </select>
-      <div class="beanType">
-        <div class="wholeBean selectBean">
-          <img src="../images/wholeBean.png" alt="Whole bean" />
-          <span>Whole bean</span>
+    <!---------------------GIFTS---------------------------->
+    <div class="giftsPageBackgroundContainer">
+      <div class="giftsPageMainContainer">
+        <h1 class="giftsPageTitle fadeIn">Gifts</h1>
+        <div class="giftsPageItemsContainer">
+          <div class="giftsPageItemContainer fadeIn">
+            <a href="selection.html" class="giftsPagePhotoLink"
+              ><img src="../images/sumatra.png" alt="gift card picture"
+            /></a>
+            <div class="itemName">Gift Card</div>
+            <div class="itemPrice">$10.00</div>
+            <a href="selection.html" class="viewProduct"
+              >View product<i class="fa fa-chevron-right" aria-hidden="true"></i
+            ></a>
+          </div>
         </div>
-        <div class="ground selectBean">
-          <img src="../images/groundCoffee.png" alt="Ground bean" />
-          <span>Ground</span>
-        </div>
-      </div>
-      <div class="cardRelated">
-        <input type="number" class="cardItemsAdded" />
-        <a href="#" class="addCoffeeToCard">Add to cart</a>
-      </div>
-    </div>
-    <!-----------------COFFEE ADDED POP UP WINDOW---------------------------->
-    <div class="coffeeAddedContainer">
-      <span class="textAddedToCart">Added to Cart</span>
-      <div class="exitContainerSymbol">
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </div>
-      <span class="coffeeNameAdded"></span>
-      <div class="priceQuantityAdded">
-        <span class="quantity"></span> x <span class="price"></span>
-      </div>
-      <div class="operationAvailable">
-        <a href="">View cart</a>
-        <a href="">Checkout</a>
       </div>
     </div>
     <!--------------------------MAILING LIST---------------------------->
-    <div class="mailingListContainer fadeIn">
-      <h1>Stay Connected</h1>
-      <p>
+    <div class="mailingListContainer">
+      <h1 class="fadeIn">Stay Connected</h1>
+      <p class="fadeIn">
         Register for emails updates to stay up-to-date with our new products and
         promotions.
       </p>
-      <form action="">
+      <form action="" class="fadeIn">
         <input type="text" placeholder="Email Address" required />
         <input type="submit" value="Sign Up" class="mailingSignUp" />
       </form>
@@ -184,9 +155,8 @@
           <div class="footerPrincipalSection">
             <div class="footerSubSection">
               <h5 class="subSectionTitle">Shop</h5>
-              <a href="#">Coffee</a>
-              <a href="#">Gifts</a>
-              <a href="#">My Account</a>
+              <a href="coffee.html">Coffee</a>
+              <a href="gifts.html">Gifts</a>
             </div>
             <div class="footerSubSection">
               <h5 class="subSectionTitle">About</h5>

@@ -25,7 +25,7 @@ body.noScroll {
 }
 .backdrop.activeMainBar {
   top: 0;
-  background: rgba(230, 230, 230, 0.7);
+  background: rgba(70, 70, 70, 0.8);
   transition: background 0.5s ease-in-out;
 }
 /* ============================================================
@@ -241,8 +241,12 @@ body.noScroll {
 }
 
 /* ============================================================
-                          HOME PAGE 
+              HOME PAGE/COFFEE PAGE AND GIFTS PAGE
 =============================================================== */
+.giftsPageBackgroundContainer,
+.giftsPageMainContainer,
+.coffeePageBackgroundContainer,
+.coffeePageMainContainer,
 .homePageBackgroundContainer,
 .homePageMainContainer {
   width: 100%;
@@ -291,7 +295,7 @@ body.noScroll {
   font-size: 2.5rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(70, 70, 70, 1);
 }
 .bestSellerSubtitle {
   width: 85%;
@@ -339,7 +343,7 @@ body.noScroll {
   font-size: 1.3rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(70, 70, 70, 1);
 }
 .ideaTitle span {
   width: 0;
@@ -359,22 +363,32 @@ body.noScroll {
   font-size: 1.3rem;
   font-family: "Playfair Display", serif;
 }
+.giftsPageItemsContainer,
+.coffeePageItemsContainer,
 .featuredItemsContainer {
   width: 100%;
   padding: 10px 0 0;
 }
+.giftsPageItemContainer,
+.coffeePageItemContainer,
 .featuredItemContainer {
   padding: 0 0 60px;
   text-align: center;
   color: rgba(0, 0, 0, 0.7);
   border-bottom: 1px solid rgba(220, 220, 220, 1);
 }
+.giftsPageItemContainer:last-of-type,
+.coffeePageItemContainer:last-of-type,
 .featuredItemContainer:last-of-type {
   border-bottom: 1px solid rgba(220, 220, 220, 0.2);
 }
+.giftsPagePhotoLink,
+.coffeePagePhotoLink,
 .featuredPhotoLink {
   display: inline-block;
 }
+.giftsPagePhotoLink img,
+.coffeePagePhotoLink img,
 .featuredPhotoLink img {
   display: block;
   margin: 40px auto 20px;
@@ -386,83 +400,81 @@ body.noScroll {
   font-size: 1.3rem;
 }
 .itemPrice {
-  margin: 5px 0 35px;
-  font-weight: 900;
-  font-size: 1.7rem;
+  margin: 10px 0 35px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 /* ============================================================
-                    BEST SELLER SELECTION PAGE
+                        SELECTION PAGE
 =============================================================== */
-.coffeePictureContainer {
-  position: relative;
+.coffeeSelectionBackgroundContainer {
   width: 100%;
-  height: 80vh;
-  margin-bottom: 5px;
+}
+.coffeeSelectionMainContainer {
+  width: 100%;
+  padding-bottom: 60px;
+}
+.coffeeSelectionSecondContainer {
+  width: 100%;
+}
+.coffeeSelectionPictureContainer {
+  padding: 120px 0 0;
   background: linear-gradient(rgba(220, 220, 220, 1), rgba(255, 255, 255, 1));
 }
-.coffeePicture {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -37%);
+.coffeeSelectionPictureContainer img {
+  display: block;
   width: 80%;
-  height: 80%;
-  background: url("./images/sumatra.png") no-repeat center;
-  background-size: cover;
+  margin: 0 auto;
 }
-.coffeeDescriptionContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.coffeeSelectionDescriptionContainer {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
 }
 .beanPrice,
-.coffeeTitle {
-  margin: 0;
-  width: 85%;
-  text-align: center;
-  line-height: 1.2;
-  font-size: 2.7rem;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.7);
+.coffeeSelectionTitle {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 2.2rem;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  color: rgba(70, 70, 70, 1);
 }
-.coffeeSubtitle {
-  width: 85%;
-  margin: 20px 0 10px;
-  text-align: center;
+.coffeeSelectionSubtitle {
+  width: 100%;
+  margin: 30px auto 20px;
   font-weight: 300;
-  letter-spacing: 1.2px;
   line-height: 1.5;
   color: rgba(160, 160, 160, 1);
 }
 .beanPrice {
-  font-size: 3.3rem;
-  font-family: "Cormorant Upright";
-  margin-bottom: 25px;
-  font-weight: 600;
+  margin-bottom: 35px;
+  font-weight: 500;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .weightSelection {
   width: 80px;
   height: 50px;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.1rem;
+  font-weight: lighter;
+  font-family: Georgia, "Times New Roman", Times, serif;
   background: rgba(240, 240, 240, 1);
   border: none;
 }
 .beanType {
-  margin: 35px 0;
-  width: 85%;
+  margin: 45px auto;
+  width: 240px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .selectBean {
   width: 110px;
   height: 130px;
-  margin: 0 8px;
-  padding: 15px;
+  margin: 0;
+  padding: 15px 0;
   border: 1px solid transparent;
   cursor: pointer;
   display: flex;
@@ -479,38 +491,44 @@ body.noScroll {
   border: 1px solid rgba(240, 240, 240, 1);
   transition: border 0.3s;
 }
-.ground span,
-.wholeBean span {
+.beanDescription {
+  display: block;
   margin-top: 5px;
-  font-size: 0.6rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: bolder;
+  font-family: "Playfair Display", serif;
   text-transform: uppercase;
   letter-spacing: 1.1px;
   color: rgba(0, 0, 0, 0.8);
 }
 .cardRelated {
-  width: 85%;
-  margin: 5px 0 20px 0;
+  width: 290px;
+  margin: 5px auto 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .cardItemsAdded {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   margin-right: 10px;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(200, 200, 200, 1);
+  font-size: 1.2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
-  font-size: 1.1rem;
   -moz-appearance: textfield;
 }
-.cardItemsAdded:hover {
+.cardItemsAdded:focus {
   -moz-appearance: none;
 }
 .addCoffeeToCard {
-  padding: 25px 50px;
-  margin-left: 10px;
+  height: 70px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.7rem;
@@ -520,12 +538,12 @@ body.noScroll {
   transition: background 0.5s;
 }
 .addCoffeeToCard:hover {
-  background: rgba(157, 132, 96, 0.8);
+  background: rgba(70, 70, 70, 1);
   transition: background 0.5s;
 }
 
 /* ============================================================
-                 COFFEE ADDED TO CARD POPUP
+                          CART POPUP
 =============================================================== */
 .coffeeAddedContainer {
   position: fixed;
@@ -536,14 +554,15 @@ body.noScroll {
   background: rgba(70, 70, 70, 1);
   display: flex;
   flex-direction: column;
-  align-items: center;
   display: none;
 }
 .textAddedToCart {
-  display: block;
-  margin: 20px 0 5px;
-  font-size: 1.1rem;
+  width: 90%;
+  margin: 20px auto 5px;
+  text-align: center;
+  font-size: 1.2rem;
   font-weight: 500;
+  font-family: "Playfair Display", serif;
   color: rgba(255, 255, 255, 1);
 }
 .exitContainerSymbol {
@@ -553,14 +572,14 @@ body.noScroll {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  background: rgba(40, 40, 40, 1);
+  background: rgba(83, 83, 83, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background 0.5s;
 }
 .exitContainerSymbol i {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 1);
   transition: color 0.5s;
 }
@@ -572,6 +591,25 @@ body.noScroll {
   color: rgba(70, 70, 70, 1);
   transition: color 0.5s;
 }
+.popupContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+.popupImage {
+  display: none;
+}
+.popupDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cartSubtotal,
+.popupUnderline,
+.coffeeSizeAdded,
+.coffeeTypeAdded {
+  display: none;
+}
 .coffeeNameAdded {
   display: block;
   margin: 20px 0 10px;
@@ -581,29 +619,46 @@ body.noScroll {
 }
 .priceQuantityAdded,
 .priceQuantityAdded span {
-  font-size: 1.4rem;
   font-weight: 300;
-  font-family: "Cormorant Upright";
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: rgba(160, 160, 160, 1);
+}
+.operationAvailable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 30px auto 20px;
 }
 .operationAvailable a {
   display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: bolder;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 1.3px;
-  padding: 12px 42px;
-  margin: 25px 7px 20px;
-  border: 2px solid rgba(240, 240, 240, 1);
-  color: rgba(255, 255, 255, 1);
-  transition: background 0.5s;
+  letter-spacing: 1.2px;
 }
-.operationAvailable a:hover {
-  background: rgba(157, 132, 96, 1);
+.viewCheckout {
+  padding: 18px 44px;
   color: rgba(70, 70, 70, 1);
-  border: 2px solid rgba(157, 132, 96, 1);
-  transition: background 0.5s;
+  background: rgba(255, 255, 255, 1);
+  transition: all 0.5s;
+}
+.viewCart {
+  padding: 16px 42px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.5s;
+}
+.viewCheckout:hover {
+  background: rgba(157, 132, 96, 1);
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.5s;
+}
+.viewCart:hover {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(70, 70, 70, 1);
+  transition: all 0.5s;
 }
 
 /* ============================================================
@@ -744,18 +799,21 @@ body.noScroll {
 .menuMainContainer {
   width: 100%;
 }
+.giftsPageTitle,
+.coffeePageTitle,
 .menuTitle,
 .locationTitle,
 .contactTitle,
 .blogTitle {
   width: 100%;
-  margin: 0 auto 20px;
-  padding: 95px 0 0 0;
+  margin: 0 auto;
+  padding: 95px 0 20px;
   text-align: center;
   font-size: 3rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
+  background: linear-gradient(rgba(220, 220, 220, 1), rgba(255, 255, 255, 1));
 }
 .menuContainer {
   width: 100%;
@@ -796,8 +854,9 @@ body.noScroll {
 }
 .menuItemPrice {
   margin-left: 10px;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: rgba(70, 70, 70, 1);
 }
 .subSectionDescription {
@@ -1211,25 +1270,26 @@ body.noScroll {
   width: 100%;
 }
 .returnPolicyPicture img {
+  display: block;
   width: 100%;
-}
-.returnPolicyContainer {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px 0 0;
 }
 .returnPolicyTitle {
   width: 100%;
-  margin: 0 auto 30px;
+  margin: 0;
+  padding: 20px 0;
   text-align: center;
   font-size: 2.9rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
+  background: linear-gradient(rgba(220, 220, 220, 1), rgba(255, 255, 255, 1));
+}
+.returnPolicyContainer {
+  width: 80%;
+  margin: 0 auto;
 }
 .returnPolicyDescription {
   width: 100%;
-  margin-bottom: 30px;
   text-align: justify;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
@@ -1461,7 +1521,10 @@ footer {
     font-size: 1.4rem;
   }
 
-  /* FOR THE HOME PAGE */
+  /* FOR THE HOME PAGE/COFFEE PAGE AND GIFTS PAGE */
+  .coffeeSelectionMainContainer,
+  .giftsPageMainContainer,
+  .coffeePageMainContainer,
   .homePageMainContainer {
     width: calc(100% - 40px);
     margin: 0 auto;
@@ -1519,18 +1582,30 @@ footer {
     margin: 50px auto 0;
     font-size: 1.2rem;
   }
+  .coffeePageItemsContainer,
   .featuredItemsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
+    grid-gap: 40px;
     padding: 20px 20px 40px;
   }
+  .giftsPageItemsContainer {
+    width: 420px;
+    margin: 0 auto;
+    padding: 20px 20px 40px;
+  }
+  .giftsPageItemContainer,
+  .giftsPageItemContainer:last-of-type,
+  .coffeePageItemContainer,
+  .coffeePageItemContainer:last-of-type,
   .featuredItemContainer:last-of-type,
   .featuredItemContainer {
     border: 1px solid transparent;
     transition: border 0.3s ease-out;
     overflow-y: hidden;
   }
+  .giftsPagePhotoLink,
+  .coffeePagePhotoLink,
   .featuredPhotoLink {
     scale: 1;
     transition: scale 0.3s ease-out;
@@ -1539,17 +1614,161 @@ footer {
     transform: translateY(200px);
     transition: transform 0.3s ease-out;
   }
+  .giftsPageItemContainer:hover,
+  .coffeePageItemContainer:hover,
   .featuredItemContainer:hover {
     border: 1px solid rgba(220, 220, 220, 1);
     transition: border 0.3s ease-out;
   }
+  .giftsPageItemContainer:hover .giftsPagePhotoLink,
+  .coffeePageItemContainer:hover .coffeePagePhotoLink,
   .featuredItemContainer:hover .featuredPhotoLink {
     scale: 1.05;
     transition: scale 0.3s ease-out;
   }
+  .giftsPageItemContainer:hover .viewProduct,
+  .coffeePageItemContainer:hover .viewProduct,
   .featuredItemContainer:hover .viewProduct {
     transform: translateY(0);
     transition: transform 0.3s ease-out;
+  }
+
+  /* FOR THE SELECTION PAGE */
+  .coffeeSelectionMainContainer {
+    padding-bottom: 90px;
+  }
+  .coffeeSelectionPictureContainer {
+    padding: 140px 0 10px;
+    background: rgba(255, 255, 255, 1);
+  }
+  .coffeeSelectionPictureContainer img {
+    width: 45%;
+  }
+  .coffeeSelectionDescriptionContainer {
+    width: 70%;
+  }
+  .coffeeSelectionTitle {
+    font-size: 3.3rem;
+  }
+  .coffeeSelectionSubtitle {
+    font-size: 1.2rem;
+  }
+  .beanPrice {
+    font-size: 2.5rem;
+  }
+  .addCoffeeToCard {
+    font-size: 0.8rem;
+  }
+
+  /* FOR THE CART POP UP */
+  .coffeeAddedContainer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: rgba(255, 255, 255, 1);
+  }
+  .textAddedToCart {
+    margin: 20px auto 35px;
+    font-size: 1.2rem;
+    color: rgba(70, 70, 70, 1);
+  }
+  .exitContainerSymbol {
+    background: rgba(220, 220, 220, 0.3);
+  }
+  .exitContainerSymbol i {
+    color: rgba(160, 160, 160, 1);
+  }
+  .exitContainerSymbol:hover {
+    background: rgba(255, 255, 255, 1);
+    transition: background 0.5s;
+  }
+  .exitContainerSymbol:hover i {
+    color: rgba(70, 70, 70, 1);
+    transition: color 0.5s;
+  }
+  .popupContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .popupImage {
+    display: block;
+    width: 25%;
+  }
+  .popupImage img {
+    width: 100%;
+    display: block;
+  }
+  .popupDescriptionContainer {
+    width: 100%;
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+  .coffeeNameAdded {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgba(70, 70, 70, 1);
+  }
+  .coffeeSizeAdded,
+  .coffeeTypeAdded {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    color: rgba(70, 70, 70, 1);
+  }
+  .priceQuantityAdded,
+  .priceQuantityAdded span {
+    margin-top: 5px;
+    font-size: 0.8rem;
+  }
+  .popupUnderline {
+    display: block;
+    width: 90%;
+    height: 2px;
+    margin: 30px auto 20px;
+    border-radius: 2px;
+    background: rgba(220, 220, 220, 0.5);
+  }
+  .cartSubtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    margin: 0 auto 30px;
+  }
+  .cartSubtotal p {
+    margin: 0;
+    color: rgba(70, 70, 70, 1);
+  }
+  .cartSubtotal span {
+    font-weight: bolder;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: rgba(70, 70, 70, 1);
+  }
+  .operationAvailable {
+    margin: 10px auto 20px;
+  }
+  .viewCheckout {
+    padding: 18px 44px;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(157, 132, 96, 1);
+  }
+  .viewCart {
+    padding: 16px 42px;
+    border: 2px solid rgba(157, 132, 96, 1);
+    color: rgba(157, 132, 96, 1);
+    transition: all 0.5s;
+  }
+  .viewCheckout:hover {
+    background: rgba(70, 70, 70, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+  .viewCart:hover {
+    background: rgba(70, 70, 70, 1);
+    border: 2px solid rgba(70, 70, 70, 1);
+    color: rgba(255, 255, 255, 1);
   }
 
   /* FOR OUR STORY AND OUR PROCESS */
@@ -1625,12 +1844,14 @@ footer {
     padding-bottom: 90px;
     background: rgba(255, 255, 255, 1);
   }
+  .giftsPageTitle,
+  .coffeePageTitle,
   .blogTitle,
   .contactTitle,
   .locationTitle,
   .menuTitle {
     width: calc(100% - 40px);
-    padding: 110px 0 0 0;
+    padding: 110px 0 20px;
     font-size: 5rem;
     background: rgba(255, 255, 255, 1);
   }
@@ -1648,6 +1869,9 @@ footer {
   }
 
   /* FOR THE LOCATION AND BLOG */
+  .coffeeSelectionBackgroundContainer,
+  .giftsPageBackgroundContainer,
+  .coffeePageBackgroundContainer,
   .ourStoryBackgroundContainer,
   .returnPolicyBackgroundContainer,
   .contactBackgroundContainer,
@@ -1813,8 +2037,9 @@ footer {
     margin: 0 auto;
   }
   .returnPolicyTitle {
-    margin: 0 auto 50px;
+    padding: 20px 0 30px;
     font-size: 5rem;
+    background: rgba(255, 255, 255, 1);
   }
   .returnPolicyDescription {
     font-size: 1.2rem;
@@ -1878,7 +2103,7 @@ footer {
     font-size: 1.4rem;
   }
 
-  /* FOR THE HOME PAGE */
+  /* FOR THE HOME PAGE/COFFEE AND GIFTS PAGE */
   .homeBanner {
     display: block;
     position: absolute;
@@ -1933,6 +2158,36 @@ footer {
     width: 900px;
     margin: 0 auto;
   }
+  .coffeePageItemsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* FOR THE SELECTION PAGE */
+  .coffeeSelectionMainContainer {
+    padding: 150px 0 90px;
+  }
+  .coffeeSelectionSecondContainer {
+    display: flex;
+    align-items: center;
+    width: 900px;
+    margin: 0 auto;
+  }
+  .coffeeSelectionPictureContainer {
+    width: 700px;
+    padding: 0;
+  }
+  .coffeeSelectionPictureContainer img {
+    width: 100%;
+  }
+  .coffeeSelectionDescriptionContainer {
+    flex-grow: 1;
+  }
+  .coffeeSelectionTitle {
+    font-size: 2.6rem;
+  }
+  .beanPrice {
+    font-size: 2rem;
+  }
 
   /* FOR OUR STORY AND OUR PROCESS */
   .ourProcessMainContainer,
@@ -1959,6 +2214,8 @@ footer {
   }
 
   /* FOR THE MENU */
+  .giftsPageTitle,
+  .coffeePageTitle,
   .ourStoryTitle,
   .blogTitle,
   .contactTitle,
@@ -2077,7 +2334,7 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
-  /* FOR THE HOME PAGE */
+  /* FOR THE HOME PAGE/COFFEE AND GIFTS PAGE */
   .homePageMainContainer {
     padding-top: 40px;
   }
@@ -2090,8 +2347,8 @@ footer {
     margin: 40px auto 0;
     padding: 100px 60px 90px;
   }
-  .featuredItemsContainer {
-    width: 900px;
+  .coffeePageItemsContainer {
+    width: 1100px;
     margin: 0 auto;
   }
 
