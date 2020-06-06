@@ -8,11 +8,12 @@ body {
   padding: 0;
 }
 body.noScroll {
+  height: 100vh;
   overflow-y: hidden;
 }
 
 /* ============================================================
-                      BACKDROP
+                    BACKDROP OPEN NAVIGATION
 =============================================================== */
 .backdrop {
   position: fixed;
@@ -28,6 +29,7 @@ body.noScroll {
   background: rgba(70, 70, 70, 0.8);
   transition: background 0.5s ease-in-out;
 }
+
 /* ============================================================
                     NAVIGATION BAR
 =============================================================== */
@@ -43,6 +45,7 @@ body.noScroll {
   transition: top 0.5s;
 }
 .visibleNavBar {
+  position: relative;
   width: 100%;
   height: 85px;
   background: rgba(255, 255, 255, 1);
@@ -112,6 +115,10 @@ body.noScroll {
   z-index: 1;
 }
 .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 120px;
   height: 80px;
   opacity: 0.8;
@@ -421,7 +428,7 @@ body.noScroll {
 }
 .coffeeSelectionPictureContainer {
   padding: 120px 0 0;
-  background: linear-gradient(rgba(220, 220, 220, 1), rgba(255, 255, 255, 1));
+  background: linear-gradient(rgba(220, 220, 220, 0.6), rgba(255, 255, 255, 1));
 }
 .coffeeSelectionPictureContainer img {
   display: block;
@@ -486,6 +493,10 @@ body.noScroll {
 .wholeBean {
   background: rgba(240, 240, 240, 1);
 }
+.selectBean img {
+  display: block;
+  width: 75%;
+}
 .wholeBean:hover,
 .ground:hover {
   border: 1px solid rgba(240, 240, 240, 1);
@@ -540,6 +551,24 @@ body.noScroll {
 .addCoffeeToCard:hover {
   background: rgba(70, 70, 70, 1);
   transition: background 0.5s;
+}
+
+/* ============================================================
+                BACKDROP OPEN CART POPUP
+=============================================================== */
+.backdropPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background: rgba(70, 70, 70, 0.8);
+  display: none;
+}
+.backdropPopup.PopupOpen {
+  display: block;
+  background: rgba(70, 70, 70, 0.8);
 }
 
 /* ============================================================
@@ -662,6 +691,134 @@ body.noScroll {
 }
 
 /* ============================================================
+                          CART PAGE
+=============================================================== */
+.cartMainContainer,
+.cartBackgroundContainer {
+  width: 100%;
+}
+.cartItems {
+  width: 85%;
+  margin: 0 auto;
+  padding: 20px 0 60px;
+}
+.cartTopBorder {
+  display: none;
+}
+.cartItem {
+  width: 100%;
+  margin-bottom: 90px;
+}
+.cartItemPhotoContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 0 30px;
+  border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+  border-radius: 2px;
+}
+.cartItemPhotoContainer img {
+  width: 30%;
+}
+.removeCartItem {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  border: 1px solid rgba(220, 220, 220, 1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.removeCartItem i {
+  font-size: 0.8rem;
+  color: rgba(70, 70, 70, 1);
+  transition: color 0.3s ease;
+}
+.removeCartItem:hover {
+  background: rgba(70, 70, 70, 1);
+  border: 1px solid rgba(70, 70, 70, 1);
+  transition: all 0.3s ease;
+}
+.removeCartItem:hover i {
+  color: rgba(255, 255, 255, 1);
+  transition: color 0.3s ease;
+}
+.cartItemProductContainer {
+  padding: 30px 0;
+  border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+  border-radius: 2px;
+}
+.cartProductName {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  color: rgba(157, 132, 96, 1);
+}
+.cartProductSize,
+.cartProductType {
+  margin: 10px 0 0;
+  font-weight: bolder;
+  color: rgba(70, 70, 70, 1);
+}
+.cartProductSize {
+  margin-top: 3px;
+}
+.cartProductType span {
+  margin-left: 5px;
+  font-weight: 600;
+  color: rgba(70, 70, 70, 1);
+}
+.cartProductSize span {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  color: rgba(70, 70, 70, 1);
+}
+.cartItemsSubtotalContainer,
+.cartItemQuantityContainer,
+.cartItemPriceContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+  border-radius: 2px;
+}
+.cartItemsSubtotalContainer {
+  padding: 0 0 30px;
+}
+.cartItemQuantityContainer {
+  align-items: flex-start;
+}
+.cartItemsSubtotalContainer p,
+.cartItemQuantityContainer p,
+.cartItemPriceContainer p {
+  margin: 0;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+}
+.cartItemsSubtotal,
+.cartItemPrice {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: lighter;
+  color: rgba(70, 70, 70, 1);
+}
+.cartItemQuantity {
+  width: 60px;
+  height: 50px;
+  border: 1px solid rgba(200, 200, 200, 1);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+.cartItemQuantity:focus {
+  -moz-appearance: none;
+}
+/* ============================================================
                   OUR STORY AND OUR PROCESS
 =============================================================== */
 .ourProcessMainContainer,
@@ -737,7 +894,7 @@ body.noScroll {
   margin: 40px auto;
 }
 .ourProcessFirstPicture {
-  margin: 40px auto 50px;
+  margin: 30px auto 40px;
 }
 .ourStoryThirdPicture,
 .ourProcessSecondPicture {
@@ -772,17 +929,20 @@ body.noScroll {
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
+.processStep {
+  margin: 0 auto 20px;
+}
 .processTitle,
 .processSubtitle,
 .storySubtitle {
-  margin: 0 auto 20px;
-  font-size: 1.2rem;
+  margin: 0 auto 10px;
+  font-size: 1rem;
   font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
 }
 .processTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .processStep {
   margin: 0 auto 20px;
@@ -799,6 +959,7 @@ body.noScroll {
 .menuMainContainer {
   width: 100%;
 }
+.cartTitle,
 .giftsPageTitle,
 .coffeePageTitle,
 .menuTitle,
@@ -813,7 +974,7 @@ body.noScroll {
   font-weight: 500;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
-  background: linear-gradient(rgba(220, 220, 220, 1), rgba(255, 255, 255, 1));
+  background: linear-gradient(rgba(220, 220, 220, 0.6), rgba(255, 255, 255, 1));
 }
 .menuContainer {
   width: 100%;
@@ -977,7 +1138,6 @@ body.noScroll {
 .weekendsTime,
 .weekDaysTime {
   margin: 0;
-  font-size: 1.1rem;
   font-weight: 600;
   font-family: "Playfair Display", serif;
   letter-spacing: 1.1px;
@@ -1088,8 +1248,7 @@ body.noScroll {
 .articleSubtitle {
   display: block;
   width: 85%;
-  margin: 0 auto 20px;
-  font-size: 1.2rem;
+  margin: 0 auto 10px;
   font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(0, 0, 0, 0.8);
@@ -1248,7 +1407,9 @@ body.noScroll {
   color: rgba(255, 255, 255, 1);
   background: rgba(157, 132, 96, 1);
   border: none;
+  border-radius: 0;
   transition: background 0.5s;
+  -webkit-appearance: none;
 }
 .contactSendButton:hover {
   background: rgba(70, 70, 70, 1);
@@ -1350,7 +1511,7 @@ body.noScroll {
   color: rgba(140, 140, 140, 1);
   background: rgba(255, 255, 255, 0.8);
 }
-.mailingSignUp {
+.mailingListContainer form input[type="submit"] {
   width: 85px;
   height: 100%;
   font-size: 0.7rem;
@@ -1358,12 +1519,14 @@ body.noScroll {
   text-align: center;
   letter-spacing: 1.1px;
   border: none;
+  border-radius: 0;
   background: rgba(157, 132, 96, 1);
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
   transition: background 0.5s;
+  -webkit-appearance: none;
 }
-.mailingSignUp:hover {
+.mailingListContainer form input[type="submit"]:hover {
   background: rgba(70, 70, 70, 1);
   transition: background 0.5s;
 }
@@ -1522,6 +1685,7 @@ footer {
   }
 
   /* FOR THE HOME PAGE/COFFEE PAGE AND GIFTS PAGE */
+  .cartMainContainer,
   .coffeeSelectionMainContainer,
   .giftsPageMainContainer,
   .coffeePageMainContainer,
@@ -1694,7 +1858,7 @@ footer {
   }
   .popupImage {
     display: block;
-    width: 30%;
+    width: 31%;
   }
   .popupImage img {
     width: 100%;
@@ -1706,7 +1870,7 @@ footer {
     align-items: flex-start;
   }
   .coffeeNameAdded {
-    margin: 0;
+    margin: 0 0 5px;
     font-size: 1.2rem;
     font-weight: bold;
     color: rgba(70, 70, 70, 1);
@@ -1714,26 +1878,29 @@ footer {
   .coffeeSizeAdded,
   .coffeeTypeAdded {
     display: block;
-    margin-top: 3px;
     font-size: 1rem;
     font-weight: bolder;
     color: rgba(70, 70, 70, 1);
   }
   .coffeeSizeAdded span {
-    font-weight: 300;
-    font-size: 0.9rem;
+    margin-left: 3px;
+    font-weight: lighter;
+    font-size: 0.8rem;
     font-family: Georgia, "Times New Roman", Times, serif;
-    color: rgba(160, 160, 160, 1);
+    color: rgba(100, 100, 100, 1);
   }
   .coffeeTypeAdded span {
-    font-weight: 600;
+    margin-left: 3px;
+    font-weight: 400;
     font-size: 0.9rem;
-    color: rgba(160, 160, 160, 1);
+    color: rgba(100, 100, 100, 1);
   }
   .priceQuantityAdded,
   .priceQuantityAdded span {
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: 0.9rem;
+    font-weight: lighter;
+    color: rgba(100, 100, 100, 1);
   }
   .popupUnderline {
     display: block;
@@ -1783,6 +1950,92 @@ footer {
     color: rgba(255, 255, 255, 1);
   }
 
+  /* FOR THE CART PAGE */
+  .cartItems {
+    padding: 20px 0 90px;
+  }
+  .cartTopBorder {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 2px solid rgba(220, 220, 220, 0.5);
+    border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+    border-radius: 2px;
+  }
+  .cartTopBorder p {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: "Playfair Display", serif;
+  }
+  .rightSpaceBorder {
+    width: 31%;
+  }
+  .productNameBorder {
+    width: 16%;
+  }
+  .cartItem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 20px 0;
+    border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+    border-radius: 2px;
+  }
+  .cartItemPhotoContainer {
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
+    padding: 0;
+    border-bottom: none;
+  }
+  .cartItemPhotoContainer img {
+    width: 50%;
+    margin-left: 50px;
+  }
+  .removeCartItem {
+    position: relative;
+    right: -10px;
+  }
+  .cartItemProductContainer {
+    width: 15%;
+    padding: 0;
+    border-bottom: none;
+  }
+  .cartProductSize {
+    margin-top: 5px;
+  }
+  .cartProductType span {
+    margin-left: 0;
+  }
+  .cartItemQuantityContainer,
+  .cartItemPriceContainer {
+    flex-direction: column;
+    padding: 0;
+    border-bottom: none;
+  }
+  .cartItemQuantity {
+    width: 70px;
+  }
+  .cartItemsSubtotalContainer {
+    justify-content: flex-end;
+    padding: 30px 0 0;
+    border: none;
+  }
+  .cartItemsSubtotalContainer p {
+    margin-right: 20px;
+    font-size: 1.2rem;
+  }
+  .cartItemQuantityContainer p,
+  .cartItemPriceContainer p {
+    display: none;
+  }
+  .cartItemsSubtotal {
+    font-size: 1.2rem;
+  }
+
   /* FOR OUR STORY AND OUR PROCESS */
   .ourProcessMainContainer,
   .ourStoryMainContainer {
@@ -1819,6 +2072,9 @@ footer {
   .ourProcessPicturesContainer {
     margin: 40px auto 0;
   }
+  .ourProcessFirstPicture {
+    margin: 50px auto;
+  }
   .ourProcessThirdPicture,
   .ourProcessSecondPicture {
     width: 47%;
@@ -1829,20 +2085,25 @@ footer {
     width: 47%;
     margin: 50px 0 40px;
   }
+  .ourStoryThirdPicture {
+    margin-bottom: 40px;
+  }
   .processText,
   .storyText {
     font-size: 1.2rem;
     margin-bottom: 40px;
   }
   .processStep {
+    margin: 0 auto 30px;
     font-size: 1.2rem;
   }
   .processTitle {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   .processSubtitle,
   .storySubtitle {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
   }
 
   /* FOR THE MENU */
@@ -1856,6 +2117,7 @@ footer {
     padding-bottom: 90px;
     background: rgba(255, 255, 255, 1);
   }
+  .cartTitle,
   .giftsPageTitle,
   .coffeePageTitle,
   .blogTitle,
@@ -1881,6 +2143,7 @@ footer {
   }
 
   /* FOR THE LOCATION AND BLOG */
+  .cartBackgroundContainer,
   .coffeeSelectionBackgroundContainer,
   .giftsPageBackgroundContainer,
   .coffeePageBackgroundContainer,
@@ -1934,9 +2197,7 @@ footer {
     margin: 0 30px 40px;
   }
   .weekendsTime,
-  .weekDaysTime {
-    font-size: 1.4rem;
-  }
+  .weekDaysTime,
   .openHoursWeekDays,
   .openHoursWeekends {
     font-size: 1.2rem;
@@ -1987,10 +2248,11 @@ footer {
   }
   .articleMainContainer p {
     margin: 0 auto 40px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .articleSubtitle {
-    font-size: 1.3rem;
+    margin: 0 auto 15px;
+    font-size: 1.2rem;
   }
   .nextArticle {
     width: 190px;
@@ -2079,7 +2341,7 @@ footer {
     width: 400px;
     font-size: 1.1rem;
   }
-  .mailingSignUp {
+  .mailingListContainer form input[type="submit"] {
     width: 100px;
     font-size: 0.8rem;
   }
@@ -2106,11 +2368,6 @@ footer {
 
 @media screen and (min-width: 990px) {
   /* FOR THE NAVBAR */
-  .navItem,
-  .subItem li a,
-  .subItem li a i {
-    font-size: 0.9rem;
-  }
   .socialIcons a i {
     font-size: 1.4rem;
   }
@@ -2281,12 +2538,8 @@ footer {
   }
   .locationWeekend,
   .locationWeekDay {
-    width: 41%;
+    width: 42%;
     margin: 0 10px 40px;
-  }
-  .weekendsTime,
-  .weekDaysTime {
-    font-size: 1.3rem;
   }
   .blogName a {
     font-size: 2rem;
@@ -2351,7 +2604,7 @@ footer {
     padding-top: 40px;
   }
   .homeBackgroundImage {
-    width: 1000px;
+    width: 1100px;
     margin: 0 auto;
   }
   .ideaDescriptionContainer {
@@ -2361,6 +2614,12 @@ footer {
   }
   .coffeePageItemsContainer {
     width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* FOR THE CART PAGE */
+  .cartItems {
+    width: 1000px;
     margin: 0 auto;
   }
 
