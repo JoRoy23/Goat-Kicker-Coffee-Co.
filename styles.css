@@ -483,11 +483,11 @@ body.noScroll {
   margin: 0;
   padding: 15px 0;
   border: 1px solid transparent;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
   transition: border 0.3s;
 }
 .wholeBean {
@@ -509,7 +509,7 @@ body.noScroll {
   font-weight: bolder;
   font-family: "Playfair Display", serif;
   text-transform: uppercase;
-  letter-spacing: 1.1px;
+  letter-spacing: 1.2px;
   color: rgba(0, 0, 0, 0.8);
 }
 .cardRelated {
@@ -693,11 +693,12 @@ body.noScroll {
 /* ============================================================
                           CART PAGE
 =============================================================== */
+.cartItems,
 .cartMainContainer,
 .cartBackgroundContainer {
   width: 100%;
 }
-.cartItems {
+.cartInformations {
   width: 85%;
   margin: 0 auto;
   padding: 20px 0 60px;
@@ -1487,7 +1488,6 @@ body.noScroll {
 .mailingListContainer p {
   width: 88%;
   margin: 30px auto 40px;
-  font-weight: 0.9rem;
   text-align: center;
   line-height: 1.5;
   letter-spacing: 1.1px;
@@ -1772,11 +1772,12 @@ footer {
   .coffeePagePhotoLink,
   .featuredPhotoLink {
     scale: 1;
-    transition: scale 0.3s ease-out;
+    transition: scale 0.3s ease;
   }
   .viewProduct {
-    transform: translateY(200px);
-    transition: transform 0.3s ease-out;
+    transform: translateY(15px);
+    opacity: 0;
+    transition: all 0.5s ease-out;
   }
   .giftsPageItemContainer:hover,
   .coffeePageItemContainer:hover,
@@ -1788,13 +1789,14 @@ footer {
   .coffeePageItemContainer:hover .coffeePagePhotoLink,
   .featuredItemContainer:hover .featuredPhotoLink {
     scale: 1.05;
-    transition: scale 0.3s ease-out;
+    transition: scale 0.3s ease;
   }
   .giftsPageItemContainer:hover .viewProduct,
   .coffeePageItemContainer:hover .viewProduct,
   .featuredItemContainer:hover .viewProduct {
     transform: translateY(0);
-    transition: transform 0.3s ease-out;
+    opacity: 1;
+    transition: all 0.5s ease-out;
   }
 
   /* FOR THE SELECTION PAGE */
@@ -1872,35 +1874,32 @@ footer {
   .coffeeNameAdded {
     margin: 0 0 5px;
     font-size: 1.2rem;
-    font-weight: bold;
-    color: rgba(70, 70, 70, 1);
+    font-weight: 500;
+    color: rgba(157, 132, 96, 1);
   }
   .coffeeSizeAdded,
   .coffeeTypeAdded {
     display: block;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bolder;
     color: rgba(70, 70, 70, 1);
   }
   .coffeeSizeAdded span {
     margin-left: 3px;
     font-weight: lighter;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: Georgia, "Times New Roman", Times, serif;
-    color: rgba(100, 100, 100, 1);
   }
   .coffeeTypeAdded span {
     margin-left: 3px;
     font-weight: 400;
-    font-size: 0.9rem;
-    color: rgba(100, 100, 100, 1);
   }
   .priceQuantityAdded,
   .priceQuantityAdded span {
     margin-top: 8px;
     font-size: 0.9rem;
     font-weight: lighter;
-    color: rgba(100, 100, 100, 1);
+    color: rgba(70, 70, 70, 1);
   }
   .popupUnderline {
     display: block;
@@ -1951,7 +1950,7 @@ footer {
   }
 
   /* FOR THE CART PAGE */
-  .cartItems {
+  .cartInformations {
     padding: 20px 0 90px;
   }
   .cartTopBorder {
@@ -1970,10 +1969,10 @@ footer {
     font-family: "Playfair Display", serif;
   }
   .rightSpaceBorder {
-    width: 31%;
+    width: 30%;
   }
   .productNameBorder {
-    width: 16%;
+    width: 15%;
   }
   .cartItem {
     display: flex;
@@ -2618,7 +2617,7 @@ footer {
   }
 
   /* FOR THE CART PAGE */
-  .cartItems {
+  .cartInformations {
     width: 1000px;
     margin: 0 auto;
   }
