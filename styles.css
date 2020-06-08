@@ -133,7 +133,6 @@ body.noScroll {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
 .shoppingCartLogo i {
   font-size: 1.2rem;
@@ -327,11 +326,6 @@ body.noScroll {
 .viewCoffeeButton:hover {
   background: rgba(70, 70, 70, 1);
   transition: background 0.5s;
-}
-.viewProduct i,
-.viewCoffeeButton i {
-  font-size: 0.6rem;
-  margin-left: 5px;
 }
 .ideaDescriptionMainContainer {
   width: 100%;

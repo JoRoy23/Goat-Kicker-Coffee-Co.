@@ -258,18 +258,6 @@ if (window.location.href.indexOf("selection") > -1) {
     }
   });
 
-  /* Retrieve the subtotal price in the html cart to insert it in the popup window */
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", "cart.html", true);
-
-  xhr.onload = function () {
-    if (this.status === 200) {
-      let cartItemsSubtotal = document.querySelector(".cartItemsSubtotal");
-      let popupItemsSubtotal = document.querySelector(".cartSubtotal span");
-      popupItemsSubtotal.innerText = cartItemsSubtotal.innerText;
-    }
-  };
-
   /* Close the popup window when we click on the exit symbol */
   const buttonClosePopUpWindow = document.querySelector(".exitContainerSymbol");
 
@@ -280,14 +268,25 @@ if (window.location.href.indexOf("selection") > -1) {
 
   /* When we click on the add cart item button */
   const AddCartItemButtons = document.querySelector(".addCoffeeToCard");
-
   AddCartItemButtons.addEventListener("click", addToCartClicked);
 
   function addToCartClicked() {
+    /* For the object constructor below */
+    let itemsAddedToCart;
+    var itemInformationsSavedInCart = JSON.parse(
+      localStorage.getItem("productsInCart")
+    );
+
+    if (itemInformationsSavedInCart) {
+      itemsAddedToCart = itemInformationsSavedInCart;
+    } else {
+      itemsAddedToCart = [];
+    }
+
+    /* Show the updated number of items in the cart when we add items */
     let productsNumber = localStorage.getItem("cartNumber");
     productsNumber = parseInt(productsNumber);
 
-    /* Show the updated number of items in the cart when we add items */
     if (productsNumber) {
       localStorage.setItem(
         "cartNumber",
@@ -302,40 +301,105 @@ if (window.location.href.indexOf("selection") > -1) {
       );
     }
 
-    // let productBeanType = document.querySelector("");
+    /* Show the updated subtotal price in the cart when we add items */
+    let subTotalCartPrice = localStorage.getItem("cartPrice");
+    subTotalCartPrice = parseInt(subTotalCartPrice);
+    let priceCoffeeInNumber = priceCoffee.innerText.replace("$", "");
+
+    if (subTotalCartPrice) {
+      localStorage.setItem(
+        "cartPrice",
+        subTotalCartPrice +
+          parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber)
+      );
+      document.querySelector(".cartSubtotal span").innerText =
+        "$" +
+        (subTotalCartPrice +
+          parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber));
+    } else {
+      localStorage.setItem(
+        "cartPrice",
+        parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber)
+      );
+      document.querySelector(".cartSubtotal span").innerText =
+        "$" + parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber);
+    }
+
+    /* Add multiple items in to the cart */
+    let typeCoffee;
+    if (wholeBeanSelected === true) {
+      typeCoffee = "Whole Bean";
+    } else {
+      typeCoffee = "Ground";
+    }
     let itemImage = document.querySelector(
       ".coffeeSelectionPictureContainer img"
     );
 
-    /* If an item is already in the cart we want to update only the quantity when added */
-    // let itemInformationAdded = {
-    //   name: coffeeName.innerText,
-    //   size: sizeCoffee.value,
-    //   price: priceCoffee.innerText,
-    //   image: itemImage.src,
-    //   quantity: parseInt(quantityCoffee.value),
-    // };
-    // console.log(itemInformationAdded);
-
-    let itemInformationsInCart = localStorage.getItem("productsInCart");
-    itemInformationsInCart = JSON.parse(itemInformationsInCart);
-
-    if (itemInformationsInCart !== null) {
-      itemInformationsInCart.quantity += parseInt(quantityCoffee.value);
-    } else {
-      itemInformationsInCart = {
-        name: coffeeName.innerText,
-        size: sizeCoffee.value,
-        price: priceCoffee.innerText,
-        image: itemImage.src,
-        quantity: parseInt(quantityCoffee.value),
-      };
+    function ItemInformationInCart(name, size, price, image, type, quantity) {
+      this.name = name;
+      this.size = size;
+      this.price = price;
+      this.image = image;
+      this.type = type;
+      this.quantity = quantity;
     }
+    if (itemsAddedToCart.length > 0) {
+      for (var i = 0; i < itemsAddedToCart.length; i++) {
+        if (
+          sizeCoffee.value === itemsAddedToCart[i].size &&
+          coffeeName.innerText === itemsAddedToCart[i].name &&
+          typeCoffee === itemsAddedToCart[i].type
+        ) {
+          let updatedQuantity =
+            parseInt(quantityCoffee.value) +
+            parseInt(itemsAddedToCart[i].quantity);
+          let updatedCartItem = {
+            name: itemsAddedToCart[i].name,
+            size: itemsAddedToCart[i].size,
+            price: itemsAddedToCart[i].price,
+            image: itemsAddedToCart[i].image,
+            type: itemsAddedToCart[i].type,
+            quantity: updatedQuantity,
+          };
+          itemsAddedToCart.splice(i, 1, updatedCartItem);
+          localStorage.setItem(
+            "productsInCart",
+            JSON.stringify(itemsAddedToCart)
+          );
+          break;
+        }
+      }
+      if (i == itemsAddedToCart.length) {
+        itemsAddedToCart.push(
+          new ItemInformationInCart(
+            coffeeName.innerText,
+            sizeCoffee.value,
+            priceCoffee.innerText,
+            itemImage.src,
+            typeCoffee,
+            quantityCoffee.value
+          )
+        );
 
-    localStorage.setItem(
-      "productsInCart",
-      JSON.stringify(itemInformationsInCart)
-    );
+        localStorage.setItem(
+          "productsInCart",
+          JSON.stringify(itemsAddedToCart)
+        );
+      }
+    } else {
+      itemsAddedToCart.push(
+        new ItemInformationInCart(
+          coffeeName.innerText,
+          sizeCoffee.value,
+          priceCoffee.innerText,
+          itemImage.src,
+          typeCoffee,
+          quantityCoffee.value
+        )
+      );
+      localStorage.setItem("productsInCart", JSON.stringify(itemsAddedToCart));
+    }
   }
 }
 
@@ -387,76 +451,185 @@ if (window.location.href.indexOf("coffee") > -1) {
                         CART PAGE  
 =============================================================== */
 if (window.location.href.indexOf("cart") > -1) {
-  let itemInformationsInCart = localStorage.getItem("productsInCart");
-  itemInformationsInCart = JSON.parse(itemInformationsInCart);
-  let createCartRow = document.createElement("div");
-  let cartRowContent = `
-      <div class="cartItemPhotoContainer">
-        <div class="removeCartItem"><i class="fa fa-times" aria-hidden="true"></i></div>
-        <img src="${itemInformationsInCart.image}" alt="coffee added" />
-      </div>
-      <div class="cartItemProductContainer">
-        <h3 class="cartProductName">${itemInformationsInCart.name}</h3>
-        <p class="cartProductType">Bean Type: <span>Ground</span></p>
-        <p class="cartProductSize">Size: <span>${itemInformationsInCart.size}</span></p>
-      </div>
-      <div class="cartItemQuantityContainer">
-        <p>Quantity:</p>
-        <input type="number" min="1" class="cartItemQuantity" value="${itemInformationsInCart.quantity}"/>
-      </div>
-      <div class="cartItemPriceContainer">
-        <p>Price:</p>
-        <span class="cartItemPrice">${itemInformationsInCart.price}</span>
-      </div>`;
-  createCartRow.innerHTML = cartRowContent;
-  createCartRow.classList.add("cartItem");
-  document.querySelector(".cartItems").append(createCartRow);
+  let itemInformationsSavedInCart = JSON.parse(
+    localStorage.getItem("productsInCart")
+  );
 
-  const removeCartItemButtons = document.querySelectorAll(".removeCartItem");
+  /* Check if there's items in the local storage */
+  if (itemInformationsSavedInCart === null) {
+    document.querySelector(".cartItemsSubtotal").innerText = "$" + 0;
+  } else {
+    /* Retrieve the item informations in the local storage about the item added to the cart */
+    for (let i = 0; i < itemInformationsSavedInCart.length; i++) {
+      let createCartRow = document.createElement("div");
+      let cartRowContent = `
+        <div class="cartItemPhotoContainer">
+          <div class="removeCartItem"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <img src="${itemInformationsSavedInCart[i].image}" alt="coffee added" />
+        </div>
+        <div class="cartItemProductContainer">
+          <h3 class="cartProductName">${itemInformationsSavedInCart[i].name}</h3>
+          <p class="cartProductType">Bean Type: <span>${itemInformationsSavedInCart[i].type}</span></p>
+          <p class="cartProductSize">Size: <span>${itemInformationsSavedInCart[i].size}</span></p>
+        </div>
+        <div class="cartItemQuantityContainer">
+          <p>Quantity:</p>
+          <input type="number" min="1" class="cartItemQuantity" value="${itemInformationsSavedInCart[i].quantity}"/>
+        </div>
+        <div class="cartItemPriceContainer">
+          <p>Price:</p>
+          <span class="cartItemPrice">${itemInformationsSavedInCart[i].price}</span>
+        </div>`;
+      createCartRow.innerHTML = cartRowContent;
+      createCartRow.classList.add("cartItem");
+      document.querySelector(".cartItems").append(createCartRow);
+    }
 
-  /* Remove the cart item when we click on the remove button */
-  for (let i = 0; i < removeCartItemButtons.length; i++) {
-    removeCartItemButtons[i].addEventListener("click", function (event) {
-      let removeButtonClicked = event.target;
-      if (event.target.classList.contains("removeCartItem")) {
-        removeButtonClicked.parentElement.parentElement.remove();
+    /* Retrieve the subtotal information in the local storage */
+    let subtotalPriceInStorage = localStorage.getItem("cartPrice");
+    document.querySelector(".cartItemsSubtotal").innerText =
+      "$" + subtotalPriceInStorage;
+
+    /* Remove the cart item row and the local storage item when we click on the remove button */
+    const removeCartItemButtons = document.querySelectorAll(".removeCartItem");
+
+    for (let i = 0; i < removeCartItemButtons.length; i++) {
+      removeCartItemButtons[i].addEventListener("click", function (event) {
+        let removeButtonClicked = event.target;
+
+        /* If the target is the div */
+        if (event.target.classList.contains("removeCartItem")) {
+          removeButtonClicked.parentElement.parentElement.remove();
+
+          let coffeeName =
+            event.target.parentElement.nextElementSibling.firstElementChild;
+          let sizeCoffee =
+            event.target.parentElement.nextElementSibling.lastElementChild
+              .firstElementChild;
+          let typeCoffee =
+            event.target.parentElement.nextElementSibling.firstElementChild
+              .nextElementSibling.firstElementChild;
+          let quantityCoffee =
+            event.target.parentElement.nextElementSibling.nextElementSibling
+              .lastElementChild;
+
+          for (let i = 0; i < itemInformationsSavedInCart.length; i++) {
+            if (
+              sizeCoffee.innerText === itemInformationsSavedInCart[i].size &&
+              coffeeName.innerText === itemInformationsSavedInCart[i].name &&
+              typeCoffee.innerText === itemInformationsSavedInCart[i].type
+            ) {
+              itemInformationsSavedInCart.splice(i, 1);
+              localStorage.setItem(
+                "productsInCart",
+                JSON.stringify(itemInformationsSavedInCart)
+              );
+              let cartNumberUpdated =
+                parseInt(JSON.parse(localStorage.getItem("cartNumber"))) -
+                quantityCoffee.value;
+              localStorage.setItem("cartNumber", cartNumberUpdated);
+            }
+          }
+        } else {
+          /* If the target is the i */
+          removeButtonClicked.parentElement.parentElement.parentElement.remove();
+
+          let coffeeName =
+            event.target.parentElement.parentElement.nextElementSibling
+              .firstElementChild;
+          let sizeCoffee =
+            event.target.parentElement.parentElement.nextElementSibling
+              .lastElementChild.firstElementChild;
+          let typeCoffee =
+            event.target.parentElement.parentElement.nextElementSibling
+              .firstElementChild.nextElementSibling.firstElementChild;
+          console.log(typeCoffee.value);
+          let quantityCoffee =
+            event.target.parentElement.parentElement.nextElementSibling
+              .nextElementSibling.lastElementChild;
+
+          for (let i = 0; i < itemInformationsSavedInCart.length; i++) {
+            if (
+              sizeCoffee.innerText === itemInformationsSavedInCart[i].size &&
+              coffeeName.innerText === itemInformationsSavedInCart[i].name &&
+              typeCoffee.innerText === itemInformationsSavedInCart[i].type
+            ) {
+              itemInformationsSavedInCart.splice(i, 1);
+              localStorage.setItem(
+                "productsInCart",
+                JSON.stringify(itemInformationsSavedInCart)
+              );
+            }
+          }
+        }
+        updateCart();
+      });
+    }
+
+    /* Update the cart items number when we add or soustract items from the quantity inputs */
+    let cartItemQuantity = document.querySelectorAll(".cartItemQuantity");
+
+    for (let i = 0; i < cartItemQuantity.length; i++) {
+      cartItemQuantity[i].addEventListener("change", quantityChanged);
+    }
+
+    function quantityChanged(event) {
+      if (isNaN(event.target.value) || event.target.value <= 0) {
+        event.target.value = 1;
       } else {
-        removeButtonClicked.parentElement.parentElement.parentElement.remove();
+        console.log(event.target.value);
+        for (let i = 0; i < itemInformationsSavedInCart.length; i++) {
+          if (
+            event.target.parentElement.previousElementSibling.lastElementChild
+              .firstElementChild.innerText ===
+              itemInformationsSavedInCart[i].size &&
+            event.target.parentElement.previousElementSibling.firstElementChild
+              .innerText === itemInformationsSavedInCart[i].name &&
+            event.target.parentElement.previousElementSibling.firstElementChild
+              .nextElementSibling.firstElementChild.innerText ===
+              itemInformationsSavedInCart[i].type
+          ) {
+            let updatedCartItem = {
+              name: itemInformationsSavedInCart[i].name,
+              size: itemInformationsSavedInCart[i].size,
+              price: itemInformationsSavedInCart[i].price,
+              image: itemInformationsSavedInCart[i].image,
+              type: itemInformationsSavedInCart[i].type,
+              quantity: event.target.value,
+            };
+            itemInformationsSavedInCart.splice(i, 1, updatedCartItem);
+            localStorage.setItem(
+              "productsInCart",
+              JSON.stringify(itemInformationsSavedInCart)
+            );
+          }
+        }
+        updateCart();
       }
-      updateCartTotal();
-    });
-  }
-
-  /* Update the subtotal price when we remove cart items */
-  function updateCartTotal() {
-    let cartRows = document.querySelectorAll(".cartItems .cartItem");
-    var subtotal = 0;
-    for (let i = 0; i < cartRows.length; i++) {
-      let cartRow = cartRows[i];
-      let priceCartItem = cartRow.querySelector(".cartItemPrice");
-      let quantityCartItem = cartRow.querySelector(".cartItemQuantity");
-      let price = parseFloat(priceCartItem.innerText.replace("$", ""));
-      let quantity = quantityCartItem.value;
-      subtotal += quantity * price;
     }
-    subtotal = Math.round(subtotal * 100) / 100;
-    document.querySelector(".cartItemsSubtotal").innerText = `$${subtotal}`;
-  }
 
-  /* Update the cart when a cart item quantity is change */
-  let quantityInputs = document.querySelectorAll(".cartItemQuantity");
+    /* Update the subtotal price in the cart and the item counter when we remove cart items or add/soustract quantities */
+    function updateCart() {
+      let updatedPrice = 0;
+      let itemsQuantity = 0;
+      let cartRows = document.querySelectorAll(".cartItem");
 
-  for (let i = 0; i < quantityInputs.length; i++) {
-    let quantityInput = quantityInputs[i];
-    quantityInput.addEventListener("change", quantityChanged);
-  }
-
-  function quantityChanged(event) {
-    let quantityInput = event.target;
-    if (isNaN(quantityInput.value) || quantityInput.value <= 0) {
-      quantityInput.value = 1;
+      for (let i = 0; i < cartRows.length; i++) {
+        let priceCartItem = cartRows[i].querySelector(".cartItemPrice");
+        priceCartItem = parseFloat(priceCartItem.innerText.replace("$", ""));
+        let quantityCartItem = cartRows[i].querySelector(".cartItemQuantity");
+        quantityCartItem = parseInt(quantityCartItem.value);
+        updatedPrice += quantityCartItem * priceCartItem;
+        itemsQuantity += quantityCartItem;
+      }
+      updatedPrice = Math.round(updatedPrice * 100) / 100;
+      localStorage.setItem("cartPrice", updatedPrice);
+      document.querySelector(
+        ".cartItemsSubtotal"
+      ).innerText = `$${updatedPrice}`;
+      localStorage.setItem("cartNumber", itemsQuantity);
+      document.querySelector(".itemsCounterIcon").innerText = itemsQuantity;
     }
-    updateCartTotal();
   }
 }
 
