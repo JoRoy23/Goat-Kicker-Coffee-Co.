@@ -8,7 +8,6 @@ body {
   padding: 0;
 }
 body.noScroll {
-  height: 100vh;
   overflow-y: hidden;
 }
 
@@ -145,7 +144,8 @@ body.noScroll {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-family: "Roboto Condensed", sans-serif;
   color: rgba(255, 255, 255, 1);
   background: rgba(157, 132, 96, 1);
 }
@@ -175,17 +175,18 @@ body.noScroll {
   width: 100%;
   padding: 12px 0;
   font-size: 0.9rem;
+  font-weight: 600;
   letter-spacing: 1.3px;
-  color: rgba(160, 160, 160, 1);
+  color: rgba(120, 120, 120, 1);
   cursor: pointer;
-  border-bottom: 1px solid rgba(234, 234, 234, 1);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.5);
   transition: all 0.5s;
 }
 .subItem li a i,
 .navItem i {
   display: inline-block;
   font-size: 0.8rem;
-  color: rgba(160, 160, 160, 1);
+  color: rgba(120, 120, 120, 1);
   transition: color 0.5s;
 }
 .navItem.rotateArrow i {
@@ -207,10 +208,11 @@ body.noScroll {
   width: 100%;
   padding: 12px 0;
   font-size: 0.9rem;
+  font-weight: 600;
   letter-spacing: 1.3px;
   text-decoration: none;
-  color: rgba(160, 160, 160, 1);
-  border-bottom: 1px solid rgba(234, 234, 234, 1);
+  color: rgba(120, 120, 120, 1);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.5);
   transition: all 0.5s;
 }
 .navItem:hover,
@@ -298,8 +300,8 @@ body.noScroll {
   width: 85%;
   margin: 60px auto 0;
   line-height: 1.1;
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 2.4rem;
+  font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
 }
@@ -307,7 +309,7 @@ body.noScroll {
   width: 85%;
   margin: 25px auto 40px;
   line-height: 1.5;
-  font-weight: 200;
+  font-weight: 600;
   color: rgba(140, 140, 140, 1);
 }
 .viewProduct,
@@ -342,7 +344,7 @@ body.noScroll {
   width: 80%;
   margin: 0 auto;
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
 }
@@ -354,13 +356,14 @@ body.noScroll {
 .ideaDescription {
   width: 80%;
   margin: 30px auto 0;
+  font-weight: 600;
   text-align: justify;
   color: rgba(140, 140, 140, 1);
 }
 .featured {
   margin: 40px 0 0;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.3rem;
   font-family: "Playfair Display", serif;
 }
@@ -404,7 +407,7 @@ body.noScroll {
   margin: 10px 0 35px;
   font-weight: 500;
   font-size: 1.4rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 /* ============================================================
@@ -426,7 +429,7 @@ body.noScroll {
 }
 .coffeeSelectionPictureContainer img {
   display: block;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 }
 .coffeeSelectionDescriptionContainer {
@@ -439,28 +442,31 @@ body.noScroll {
   width: 100%;
   margin: 0 auto;
   font-size: 2.2rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
 }
 .coffeeSelectionSubtitle {
   width: 100%;
   margin: 30px auto 20px;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 1.5;
   color: rgba(160, 160, 160, 1);
+}
+.weightPriceContainer {
+  width: 100%;
 }
 .beanPrice {
   margin-bottom: 35px;
   font-weight: 500;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .weightSelection {
   width: 80px;
   height: 50px;
   font-size: 1.1rem;
-  font-weight: lighter;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  font-family: "Roboto Condensed", sans-serif;
   background: rgba(240, 240, 240, 1);
   border: none;
 }
@@ -519,8 +525,9 @@ body.noScroll {
   margin-right: 10px;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(200, 200, 200, 1);
+  border-radius: 0;
   font-size: 1.2rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
   -moz-appearance: textfield;
 }
@@ -643,14 +650,14 @@ body.noScroll {
 .priceQuantityAdded,
 .priceQuantityAdded span {
   font-weight: 300;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: rgba(160, 160, 160, 1);
 }
 .operationAvailable {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 340px;
   margin: 30px auto 20px;
 }
 .operationAvailable a {
@@ -756,7 +763,7 @@ body.noScroll {
 .cartProductSize,
 .cartProductType {
   margin: 10px 0 0;
-  font-weight: bolder;
+  font-weight: 600;
   color: rgba(70, 70, 70, 1);
 }
 .cartProductSize {
@@ -764,11 +771,10 @@ body.noScroll {
 }
 .cartProductType span {
   margin-left: 5px;
-  font-weight: 600;
   color: rgba(70, 70, 70, 1);
 }
 .cartProductSize span {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 0.9rem;
   font-weight: lighter;
   color: rgba(70, 70, 70, 1);
@@ -784,7 +790,9 @@ body.noScroll {
   border-radius: 2px;
 }
 .cartItemsSubtotalContainer {
-  padding: 0 0 30px;
+  justify-content: flex-end;
+  padding: 30px 0 0;
+  border: none;
 }
 .cartItemQuantityContainer {
   align-items: flex-start;
@@ -796,17 +804,20 @@ body.noScroll {
   font-weight: 500;
   font-family: "Playfair Display", serif;
 }
+.cartItemsSubtotalContainer p {
+  margin-right: 20px;
+}
 .cartItemsSubtotal,
 .cartItemPrice {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: lighter;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 500;
   color: rgba(70, 70, 70, 1);
 }
 .cartItemQuantity {
   width: 60px;
   height: 50px;
   border: 1px solid rgba(200, 200, 200, 1);
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
   -moz-appearance: textfield;
 }
@@ -861,13 +872,14 @@ body.noScroll {
   width: 85%;
   margin: 0 auto 20px;
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Playfair Display", serif;
   color: rgba(70, 70, 70, 1);
 }
 .factsDescription {
   width: 85%;
   margin: 0 auto;
+  font-weight: 600;
   line-height: 1.5;
   color: rgba(140, 140, 140, 1);
 }
@@ -921,6 +933,7 @@ body.noScroll {
 .storyText {
   margin: 0 auto 30px;
   text-align: justify;
+  font-weight: 600;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
@@ -991,7 +1004,7 @@ body.noScroll {
   text-align: center;
   font-size: 2.4rem;
   font-family: "Playfair Display", serif;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 1.2px;
   color: rgba(157, 132, 96, 1);
 }
@@ -1012,12 +1025,13 @@ body.noScroll {
   margin-left: 10px;
   font-size: 1.2rem;
   font-weight: lighter;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: rgba(70, 70, 70, 1);
 }
 .subSectionDescription {
   margin: 10px 0;
   font-size: 0.9rem;
+  font-weight: 600;
   font-style: italic;
   letter-spacing: 1.1px;
   color: rgba(140, 140, 140, 1);
@@ -1088,7 +1102,7 @@ body.noScroll {
   width: 85%;
   margin: 0 auto;
   font-size: 2.1rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Playfair Display", serif;
   letter-spacing: 1.2px;
   text-decoration: none;
@@ -1104,12 +1118,16 @@ body.noScroll {
 .locationAddress {
   width: 85%;
   margin: 20px auto 15px;
+  font-weight: 600;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
 .locationPhoneNumber {
   display: block;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: "Roboto Condensed", sans-serif;
   color: rgba(70, 70, 70, 1);
 }
 .readMoreContainer,
@@ -1142,6 +1160,7 @@ body.noScroll {
 .openHoursWeekDays,
 .openHoursWeekends {
   color: rgba(70, 70, 70, 1);
+  font-weight: 600;
 }
 .openHoursWeekends {
   line-height: 2;
@@ -1160,12 +1179,6 @@ body.noScroll {
   color: rgba(255, 255, 255, 1);
   background: rgba(157, 132, 96, 1);
   transition: background 0.5s;
-}
-.viewMoreButton i,
-.viewDetailsButton i {
-  font-size: 0.6rem;
-  margin-left: 5px;
-  color: rgba(255, 255, 255, 1);
 }
 .viewMoreButton {
   width: 170px;
@@ -1236,6 +1249,7 @@ body.noScroll {
 .articleMainContainer p {
   width: 85%;
   margin: 0 auto 30px;
+  font-weight: 600;
   text-align: justify;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
@@ -1286,21 +1300,28 @@ body.noScroll {
 }
 .contactInformation {
   width: 100%;
+  font-weight: 600;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
 .contactInformation span {
   display: inline-block;
   margin-bottom: 15px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 800;
 }
 .contactInformation .contactPhone {
+  display: inline-block;
+  margin-top: 10px;
   text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
   color: rgba(70, 70, 70, 1);
 }
 .contactQuestions {
   margin: 30px 0;
+  font-weight: 600;
   line-height: 1.5;
 }
 .contactQuestions a {
@@ -1447,6 +1468,7 @@ body.noScroll {
 .returnPolicyDescription {
   width: 100%;
   text-align: justify;
+  font-weight: 600;
   line-height: 1.5;
   color: rgba(70, 70, 70, 1);
 }
@@ -1474,17 +1496,16 @@ body.noScroll {
   margin: 60px auto 0;
   text-align: center;
   font-size: 2.1rem;
-  font-weight: lighter;
+  font-weight: 500;
   font-family: "Playfair Display", serif;
-  letter-spacing: 1.1px;
   color: rgba(70, 70, 70, 1);
 }
 .mailingListContainer p {
   width: 88%;
   margin: 30px auto 40px;
   text-align: center;
+  font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 1.1px;
   color: rgba(140, 140, 140, 1);
 }
 .mailingListContainer form {
@@ -1500,6 +1521,7 @@ body.noScroll {
   height: 100%;
   padding: 0 20px;
   font-size: 0.9rem;
+  font-weight: 600;
   letter-spacing: 1.1px;
   border: none;
   color: rgba(140, 140, 140, 1);
@@ -1580,9 +1602,8 @@ footer {
 }
 .footerSubSection a {
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 500;
   text-decoration: none;
-  letter-spacing: 1px;
   line-height: 2;
   color: rgba(157, 132, 96, 1);
   transition: color 0.5s;
@@ -1673,6 +1694,7 @@ footer {
   .subItem li a,
   .navItem {
     font-size: 1rem;
+    font-weight: 500;
   }
   .socialIcons a i {
     font-size: 1.4rem;
@@ -1688,6 +1710,9 @@ footer {
     margin: 0 auto;
     background: rgba(255, 255, 255, 1);
   }
+  .homeBackgroundImage {
+    padding-bottom: 30px;
+  }
   .homeBackgroundImage:before {
     position: absolute;
     top: 0;
@@ -1697,14 +1722,18 @@ footer {
     content: "";
     background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   }
+  .homePicture {
+    width: calc(100% - 60px);
+    margin: 0 auto;
+  }
   .homeBestSellerContainer {
-    bottom: -135px;
+    bottom: -115px;
     left: 25px;
     transform: translate(0, 0);
   }
   .homeBestSellerDescriptionContainer {
     position: absolute;
-    bottom: 15px;
+    bottom: 50px;
     right: 5px;
     width: 50%;
     height: 55%;
@@ -1717,7 +1746,7 @@ footer {
     margin: 0 0 20px;
     font-size: 2.2rem;
     font-weight: 900;
-    text-align: justify;
+    text-align: left;
     color: rgba(255, 255, 255, 1);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   }
@@ -1730,7 +1759,7 @@ footer {
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   }
   .ideaDescriptionContainer {
-    padding: 120px 0 90px;
+    padding: 110px 0 90px;
   }
   .ideaTitle span,
   .ideaTitle {
@@ -1739,6 +1768,7 @@ footer {
   .ideaDescription {
     margin: 50px auto 0;
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .coffeePageItemsContainer,
   .featuredItemsContainer {
@@ -1802,7 +1832,7 @@ footer {
     background: rgba(255, 255, 255, 1);
   }
   .coffeeSelectionPictureContainer img {
-    width: 45%;
+    width: 49%;
   }
   .coffeeSelectionDescriptionContainer {
     width: 70%;
@@ -1812,6 +1842,7 @@ footer {
   }
   .coffeeSelectionSubtitle {
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .beanPrice {
     font-size: 2.5rem;
@@ -1875,14 +1906,13 @@ footer {
   .coffeeTypeAdded {
     display: block;
     font-size: 1.1rem;
-    font-weight: bolder;
+    font-weight: lighter;
     color: rgba(70, 70, 70, 1);
   }
   .coffeeSizeAdded span {
     margin-left: 3px;
-    font-weight: lighter;
     font-size: 0.9rem;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Roboto Condensed", sans-serif;
   }
   .coffeeTypeAdded span {
     margin-left: 3px;
@@ -1915,8 +1945,8 @@ footer {
     color: rgba(70, 70, 70, 1);
   }
   .cartSubtotal span {
-    font-weight: bolder;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 500;
+    font-family: "Roboto Condensed", sans-serif;
     color: rgba(70, 70, 70, 1);
   }
   .operationAvailable {
@@ -1997,6 +2027,10 @@ footer {
     padding: 0;
     border-bottom: none;
   }
+  .cartProductSize,
+  .cartProductType {
+    font-weight: lighter;
+  }
   .cartProductSize {
     margin-top: 5px;
   }
@@ -2012,13 +2046,7 @@ footer {
   .cartItemQuantity {
     width: 70px;
   }
-  .cartItemsSubtotalContainer {
-    justify-content: flex-end;
-    padding: 30px 0 0;
-    border: none;
-  }
   .cartItemsSubtotalContainer p {
-    margin-right: 20px;
     font-size: 1.2rem;
   }
   .cartItemQuantityContainer p,
@@ -2037,10 +2065,19 @@ footer {
     background: rgba(255, 255, 255, 1);
     padding-bottom: 90px;
   }
+  .ourProcessMainPicture,
+  .ourStoryMainPicture {
+    padding-bottom: 30px;
+  }
+  .ourProcessMainPicture img,
+  .ourStoryMainPicture img {
+    width: calc(100% - 60px);
+    margin: 0 auto;
+  }
   .ourProcessTitle,
   .ourStoryTitle {
     font-size: 5rem;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -90%);
   }
   .ideaDescriptionContainerStory {
     padding: 60px 0;
@@ -2053,6 +2090,7 @@ footer {
   }
   .factsDescription {
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .ourProcessDescriptionContainer {
     padding: 30px 0;
@@ -2083,12 +2121,14 @@ footer {
   }
   .processText,
   .storyText {
-    font-size: 1.2rem;
     margin-bottom: 40px;
+    font-size: 1.2rem;
+    font-weight: 500;
   }
   .processStep {
     margin: 0 auto 30px;
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .processTitle {
     font-size: 1.8rem;
@@ -2134,6 +2174,9 @@ footer {
   .menuSubTitle {
     text-align: left;
   }
+  .subSectionDescription {
+    font-weight: 500;
+  }
 
   /* FOR THE LOCATION AND BLOG */
   .cartBackgroundContainer,
@@ -2171,13 +2214,16 @@ footer {
   .locationAddressContainer {
     height: 230px;
   }
-  .locationPhoneNumber,
   .locationAddress {
     width: 60%;
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .locationPhoneNumber {
-    margin: 0 auto;
+    width: 60%;
+    margin: 20px auto 0;
+    font-weight: lighter;
+    font-size: 1rem;
   }
   .locationHoursSubContainer {
     display: flex;
@@ -2194,15 +2240,12 @@ footer {
   .openHoursWeekDays,
   .openHoursWeekends {
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .viewMoreButton,
   .viewDetailsButton {
     width: 220px;
     font-size: 0.8rem;
-  }
-  .viewMoreButton i,
-  .viewDetailsButton i {
-    font-size: 0.7rem;
   }
   .viewMoreButton {
     width: 180px;
@@ -2215,6 +2258,7 @@ footer {
   }
   .blogText {
     font-size: 1.2rem;
+    font-weight: 500;
     margin: 30px auto 15px;
   }
 
@@ -2242,6 +2286,7 @@ footer {
   .articleMainContainer p {
     margin: 0 auto 40px;
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .articleSubtitle {
     margin: 0 auto 15px;
@@ -2277,9 +2322,14 @@ footer {
   .contactQuestions,
   .contactQuestions a {
     font-size: 1.2rem;
+    font-weight: 500;
   }
   .contactInformation span {
     font-size: 1.4rem;
+  }
+  .contactInformation .contactPhone {
+    font-size: 1rem;
+    font-weight: lighter;
   }
   .contactSection .sectionTitle {
     font-size: 0.9rem;
@@ -2310,6 +2360,7 @@ footer {
   }
   .returnPolicyDescription {
     font-size: 1.2rem;
+    font-weight: 500;
   }
 
   /* FOR THE MAILING LIST */
@@ -2328,6 +2379,7 @@ footer {
     width: 70%;
     margin: 40px auto 50px;
     font-size: 1.2rem;
+    font-weight: 500;
     line-height: 1.5;
   }
   .mailingListContainer form input[type="text"] {
@@ -2370,7 +2422,7 @@ footer {
     display: block;
     position: absolute;
     width: 90%;
-    top: 60px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -2386,8 +2438,8 @@ footer {
     height: 80%;
   }
   .homeBestSellerDescriptionContainer {
-    bottom: 2px;
-    left: 20px;
+    bottom: 30px;
+    left: 45px;
     width: 35%;
     height: 44%;
   }
@@ -2430,7 +2482,7 @@ footer {
   }
   .coffeeSelectionSecondContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 900px;
     margin: 0 auto;
   }
@@ -2447,7 +2499,15 @@ footer {
   .coffeeSelectionTitle {
     font-size: 2.6rem;
   }
+  .weightPriceContainer {
+    display: flex;
+    align-items: center;
+    width: 45%;
+    margin: 0 auto;
+  }
   .beanPrice {
+    margin-bottom: 0;
+    text-align: left;
     font-size: 2rem;
   }
 
@@ -2456,23 +2516,18 @@ footer {
   .ourStoryMainContainer {
     padding-top: 40px;
   }
-  .ourProcessMainPicture,
-  .ourStoryMainPicture {
-    width: 85%;
-    margin: 0 auto;
-  }
   .factsDescriptionMainContainer {
-    margin-top: 40px;
+    margin-top: 0;
   }
   .ourProcessDescriptionContainer {
     padding-top: 40px;
   }
   .ourProcessTitle,
   .ourStoryTitle {
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -110%);
   }
   .ideaDescriptionContainerStory {
-    margin: 40px auto 0;
+    margin: 0;
   }
 
   /* FOR THE MENU */
@@ -2596,13 +2651,9 @@ footer {
   .homePageMainContainer {
     padding-top: 40px;
   }
-  .homeBackgroundImage {
-    width: 1100px;
-    margin: 0 auto;
-  }
   .ideaDescriptionContainer {
     width: 1200px;
-    margin: 40px auto 0;
+    margin: 0 auto;
     padding: 100px 60px 90px;
   }
   .coffeePageItemsContainer {
@@ -2619,10 +2670,12 @@ footer {
   /* FOR OUR STORY AND OUR PROCESS */
   .ideaDescriptionContainerStory {
     width: 1200px;
+    margin: 0 auto;
   }
   .ourProcessMainPicture,
   .ourStoryMainPicture {
-    width: 900px;
+    width: 1100px;
+    margin: 0 auto;
   }
   .ourProcessPicturesContainer,
   .ourStoryPicturesContainer {
@@ -2675,5 +2728,21 @@ footer {
   .articleSubtitle,
   .articleMainContainer p {
     width: 900px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  /* FOR THE HOME PAGE/COFFEE AND GIFTS PAGE */
+  .homeBackgroundImage {
+    width: 1300px;
+    margin: 0 auto;
+  }
+  .homeBestSellerDescriptionContainer {
+    bottom: -50px;
+    left: 70px;
+    width: 30%;
+  }
+  .homeBanner {
+    top: 80px;
+    font-size: 10rem;
   }
 }
