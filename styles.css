@@ -249,10 +249,8 @@ body.noScroll {
 }
 
 /* ============================================================
-              HOME PAGE/COFFEE PAGE AND GIFTS PAGE
+                  HOME PAGE AND COFFEE PAGE 
 =============================================================== */
-.giftsPageBackgroundContainer,
-.giftsPageMainContainer,
 .coffeePageBackgroundContainer,
 .coffeePageMainContainer,
 .homePageBackgroundContainer,
@@ -367,13 +365,11 @@ body.noScroll {
   font-size: 1.3rem;
   font-family: "Playfair Display", serif;
 }
-.giftsPageItemsContainer,
 .coffeePageItemsContainer,
 .featuredItemsContainer {
   width: 100%;
   padding: 10px 0 0;
 }
-.giftsPageItemContainer,
 .coffeePageItemContainer,
 .featuredItemContainer {
   padding: 0 0 60px;
@@ -381,17 +377,14 @@ body.noScroll {
   color: rgba(0, 0, 0, 0.7);
   border-bottom: 1px solid rgba(220, 220, 220, 1);
 }
-.giftsPageItemContainer:last-of-type,
 .coffeePageItemContainer:last-of-type,
 .featuredItemContainer:last-of-type {
   border-bottom: 1px solid rgba(220, 220, 220, 0.2);
 }
-.giftsPagePhotoLink,
 .coffeePagePhotoLink,
 .featuredPhotoLink {
   display: inline-block;
 }
-.giftsPagePhotoLink img,
 .coffeePagePhotoLink img,
 .featuredPhotoLink img {
   display: block;
@@ -699,6 +692,14 @@ body.noScroll {
 .cartBackgroundContainer {
   width: 100%;
 }
+.cartEmptyDescription {
+  display: none;
+  width: 85%;
+  margin: 20px auto 0;
+  text-align: center;
+  font-weight: 600;
+  color: rgba(70, 70, 70, 1);
+}
 .cartInformations {
   width: 85%;
   margin: 0 auto;
@@ -968,7 +969,6 @@ body.noScroll {
   width: 100%;
 }
 .cartTitle,
-.giftsPageTitle,
 .coffeePageTitle,
 .menuTitle,
 .locationTitle,
@@ -1700,10 +1700,9 @@ footer {
     font-size: 1.4rem;
   }
 
-  /* FOR THE HOME PAGE/COFFEE PAGE AND GIFTS PAGE */
+  /* FOR THE HOME PAGE AND COFFEE PAGE */
   .cartMainContainer,
   .coffeeSelectionMainContainer,
-  .giftsPageMainContainer,
   .coffeePageMainContainer,
   .homePageMainContainer {
     width: calc(100% - 40px);
@@ -1777,13 +1776,6 @@ footer {
     grid-gap: 40px;
     padding: 20px 20px 40px;
   }
-  .giftsPageItemsContainer {
-    width: 420px;
-    margin: 0 auto;
-    padding: 20px 20px 40px;
-  }
-  .giftsPageItemContainer,
-  .giftsPageItemContainer:last-of-type,
   .coffeePageItemContainer,
   .coffeePageItemContainer:last-of-type,
   .featuredItemContainer:last-of-type,
@@ -1792,7 +1784,6 @@ footer {
     transition: border 0.3s ease-out;
     overflow-y: hidden;
   }
-  .giftsPagePhotoLink,
   .coffeePagePhotoLink,
   .featuredPhotoLink {
     scale: 1;
@@ -1803,19 +1794,16 @@ footer {
     opacity: 0;
     transition: all 0.5s ease-out;
   }
-  .giftsPageItemContainer:hover,
   .coffeePageItemContainer:hover,
   .featuredItemContainer:hover {
     border: 1px solid rgba(220, 220, 220, 1);
     transition: border 0.3s ease-out;
   }
-  .giftsPageItemContainer:hover .giftsPagePhotoLink,
   .coffeePageItemContainer:hover .coffeePagePhotoLink,
   .featuredItemContainer:hover .featuredPhotoLink {
     scale: 1.05;
     transition: scale 0.3s ease;
   }
-  .giftsPageItemContainer:hover .viewProduct,
   .coffeePageItemContainer:hover .viewProduct,
   .featuredItemContainer:hover .viewProduct {
     transform: translateY(0);
@@ -1974,6 +1962,10 @@ footer {
   }
 
   /* FOR THE CART PAGE */
+  .cartEmptyDescription {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
   .cartInformations {
     padding: 20px 0 90px;
   }
@@ -2151,7 +2143,6 @@ footer {
     background: rgba(255, 255, 255, 1);
   }
   .cartTitle,
-  .giftsPageTitle,
   .coffeePageTitle,
   .blogTitle,
   .contactTitle,
@@ -2181,7 +2172,6 @@ footer {
   /* FOR THE LOCATION AND BLOG */
   .cartBackgroundContainer,
   .coffeeSelectionBackgroundContainer,
-  .giftsPageBackgroundContainer,
   .coffeePageBackgroundContainer,
   .ourStoryBackgroundContainer,
   .returnPolicyBackgroundContainer,
@@ -2417,7 +2407,7 @@ footer {
     font-size: 1.4rem;
   }
 
-  /* FOR THE HOME PAGE/COFFEE AND GIFTS PAGE */
+  /* FOR THE HOME PAGE AND COFFEE PAGE */
   .homeBanner {
     display: block;
     position: absolute;
@@ -2531,7 +2521,6 @@ footer {
   }
 
   /* FOR THE MENU */
-  .giftsPageTitle,
   .coffeePageTitle,
   .ourStoryTitle,
   .blogTitle,
@@ -2647,7 +2636,7 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
-  /* FOR THE HOME PAGE/COFFEE AND GIFTS PAGE */
+  /* FOR THE HOME PAGE AND COFFEE PAGE */
   .homePageMainContainer {
     padding-top: 40px;
   }
@@ -2731,7 +2720,7 @@ footer {
   }
 }
 @media screen and (min-width: 1400px) {
-  /* FOR THE HOME PAGE/COFFEE AND GIFTS PAGE */
+  /* FOR THE HOME PAGE AND COFFEE PAGE */
   .homeBackgroundImage {
     width: 1300px;
     margin: 0 auto;

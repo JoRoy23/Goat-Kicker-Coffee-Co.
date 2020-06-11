@@ -303,26 +303,26 @@ if (window.location.href.indexOf("selection") > -1) {
 
     /* Show the updated subtotal price in the cart when we add items */
     let subTotalCartPrice = localStorage.getItem("cartPrice");
-    subTotalCartPrice = parseInt(subTotalCartPrice);
+    subTotalCartPrice = parseFloat(subTotalCartPrice);
     let priceCoffeeInNumber = priceCoffee.innerText.replace("$", "");
 
     if (subTotalCartPrice) {
       localStorage.setItem(
         "cartPrice",
         subTotalCartPrice +
-          parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber)
+          parseInt(quantityCoffee.value) * parseFloat(priceCoffeeInNumber)
       );
       document.querySelector(".cartSubtotal span").innerText =
         "$" +
         (subTotalCartPrice +
-          parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber));
+          parseInt(quantityCoffee.value) * parseFloat(priceCoffeeInNumber));
     } else {
       localStorage.setItem(
         "cartPrice",
-        parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber)
+        parseInt(quantityCoffee.value) * parseFloat(priceCoffeeInNumber)
       );
       document.querySelector(".cartSubtotal span").innerText =
-        "$" + parseInt(quantityCoffee.value) * parseInt(priceCoffeeInNumber);
+        "$" + parseInt(quantityCoffee.value) * parseFloat(priceCoffeeInNumber);
     }
 
     /* Add multiple items in to the cart */
@@ -456,10 +456,21 @@ if (window.location.href.indexOf("cart") > -1) {
   );
 
   /* Check if there's items in the local storage */
-  if (itemInformationsSavedInCart === null) {
-    document.querySelector(".cartItemsSubtotal").innerText = "$" + 0;
+  if (
+    itemInformationsSavedInCart === null ||
+    itemInformationsSavedInCart.length === 0
+  ) {
+    document.querySelector(".cartEmptyDescription").style.display = "block";
+    document.querySelector(".cartTopBorder").style.display = "none";
+    document.querySelector(".cartItemsSubtotalContainer").style.display =
+      "none";
   } else {
     /* Retrieve the item informations in the local storage about the item added to the cart */
+    document.querySelector(".cartEmptyDescription").style.display = "none";
+    document.querySelector(".cartTopBorder").style.display = "flex";
+    document.querySelector(".cartItemsSubtotalContainer").style.display =
+      "flex";
+
     for (let i = 0; i < itemInformationsSavedInCart.length; i++) {
       let createCartRow = document.createElement("div");
       let cartRowContent = `
@@ -543,7 +554,6 @@ if (window.location.href.indexOf("cart") > -1) {
           let typeCoffee =
             event.target.parentElement.parentElement.nextElementSibling
               .firstElementChild.nextElementSibling.firstElementChild;
-          console.log(typeCoffee.value);
           let quantityCoffee =
             event.target.parentElement.parentElement.nextElementSibling
               .nextElementSibling.lastElementChild;
@@ -559,9 +569,21 @@ if (window.location.href.indexOf("cart") > -1) {
                 "productsInCart",
                 JSON.stringify(itemInformationsSavedInCart)
               );
+              let cartNumberUpdated =
+                parseInt(JSON.parse(localStorage.getItem("cartNumber"))) -
+                quantityCoffee.value;
+              localStorage.setItem("cartNumber", cartNumberUpdated);
             }
           }
         }
+        if (itemInformationsSavedInCart.length === 0) {
+          document.querySelector(".cartEmptyDescription").style.display =
+            "block";
+          document.querySelector(".cartTopBorder").style.display = "none";
+          document.querySelector(".cartItemsSubtotalContainer").style.display =
+            "none";
+        }
+
         updateCart();
       });
     }
@@ -577,7 +599,6 @@ if (window.location.href.indexOf("cart") > -1) {
       if (isNaN(event.target.value) || event.target.value <= 0) {
         event.target.value = 1;
       } else {
-        console.log(event.target.value);
         for (let i = 0; i < itemInformationsSavedInCart.length; i++) {
           if (
             event.target.parentElement.previousElementSibling.lastElementChild
