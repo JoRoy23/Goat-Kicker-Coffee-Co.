@@ -11,6 +11,43 @@ body.noScroll {
   overflow-y: hidden;
 }
 
+/* ==========================================
+                   PRELOADER
+============================================= */
+.preload {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(240, 240, 240, 1);
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preloadContainer {
+  transform: translateY(-80px);
+  text-align: center;
+}
+.preloadContainer img {
+  display: inline-block;
+  width: 150px;
+}
+.preloadName {
+  margin: 0 0 5px;
+  font-size: 1.9rem;
+  font-weight: bolder;
+  font-family: "Oxygen", sans-serif;
+  color: rgba(70, 70, 70, 1);
+}
+.preloadSubname {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  font-family: "Oxygen", sans-serif;
+  color: rgba(157, 132, 96, 1);
+}
 /* ============================================================
                     BACKDROP OPEN NAVIGATION
 =============================================================== */
@@ -396,6 +433,9 @@ body.noScroll {
   font-weight: 500;
   font-size: 1.3rem;
 }
+.itemDescription {
+  display: none;
+}
 .itemPrice {
   margin: 10px 0 35px;
   font-weight: 500;
@@ -441,7 +481,7 @@ body.noScroll {
 }
 .coffeeSelectionSubtitle {
   width: 100%;
-  margin: 30px auto 20px;
+  margin: 0 auto 20px;
   font-weight: 600;
   line-height: 1.5;
   color: rgba(160, 160, 160, 1);
@@ -1123,10 +1163,10 @@ body.noScroll {
   color: rgba(70, 70, 70, 1);
 }
 .locationPhoneNumber {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-family: "Roboto Condensed", sans-serif;
   color: rgba(70, 70, 70, 1);
 }
@@ -1436,7 +1476,7 @@ body.noScroll {
 =============================================================== */
 .returnPolicyBackgroundContainer {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .returnPolicyMainContainer,
 .returnPolicyDescriptionContainer {
@@ -1685,11 +1725,11 @@ footer {
     top: 120px;
   }
   .logo {
-    width: 120px;
+    width: 230px;
     height: 120px;
     opacity: 0.8;
-    background: url("./images/longLogo.jpeg") no-repeat center;
-    background-size: cover;
+    background: url("./images/goatkickercoffeeco.png") no-repeat;
+    background-position-y: 8px;
   }
   .subItem li a,
   .navItem {
@@ -1829,6 +1869,7 @@ footer {
     font-size: 3.3rem;
   }
   .coffeeSelectionSubtitle {
+    margin: 0 auto 40px;
     font-size: 1.2rem;
     font-weight: 500;
   }
@@ -2210,10 +2251,8 @@ footer {
     font-weight: 500;
   }
   .locationPhoneNumber {
-    width: 60%;
-    margin: 20px auto 0;
     font-weight: lighter;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .locationHoursSubContainer {
     display: flex;
@@ -2294,7 +2333,7 @@ footer {
   /* FOR THE CONTACT */
   .contactMainContainer {
     width: calc(100% - 40px);
-    height: calc(100vh - 35px);
+    min-height: calc(100vh - 35px);
     margin: 0 auto;
     background: rgba(255, 255, 255, 1);
   }

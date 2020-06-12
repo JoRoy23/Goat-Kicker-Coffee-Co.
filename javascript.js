@@ -96,6 +96,48 @@ faders.forEach((fader) => {
                          HOME PAGE
 =============================================================== */
 if (window.location.href.indexOf("index") > -1) {
+  /* GSAP animation for the home page */
+  let tl = gsap.timeline({ default: { ease: "power2" } });
+
+  tl.from(".preloadName", { duration: 1, opacity: 0 }, 0.2);
+
+  tl.from(".preloadSubname", { duration: 0.5, opacity: 0, y: 10 }, "-=0.3");
+  tl.from(".preloadContainer img", {
+    duration: 1,
+    opacity: 0,
+    y: -60,
+    ease: "bounce",
+  });
+  tl.to(
+    ".preloadContainer",
+    {
+      duration: 0.7,
+      opacity: 0,
+      scale: 0.2,
+      ease: "Expo.easeOut",
+    },
+    "3"
+  );
+  tl.to(
+    ".preload",
+    {
+      duration: 0.2,
+      opacity: 0,
+      zIndex: -1,
+    },
+    "+=0.3"
+  );
+  tl.from(".bestSellerPicture", { duration: 0.7, y: -50, opacity: 0 }, "-=0.5");
+  tl.from(
+    ".homeBestSellerDescriptionContainer",
+    {
+      duration: 0.5,
+      y: 20,
+      opacity: 0,
+    },
+    "-=0.1"
+  );
+
   /* Move the best seller container when the width of the window is bigger then 768px */
   $(document).ready(() => {
     if ($(window).width() >= 768) {
@@ -131,10 +173,14 @@ if (window.location.href.indexOf("index") > -1) {
     if (event.target.classList.contains("viewProduct")) {
       let selectionInformations = {
         name:
-          event.target.previousElementSibling.previousElementSibling.innerText,
+          event.target.previousElementSibling.previousElementSibling
+            .previousElementSibling.innerText,
         image:
           event.target.previousElementSibling.previousElementSibling
-            .previousElementSibling.firstElementChild.src,
+            .previousElementSibling.previousElementSibling.firstElementChild
+            .src,
+        description:
+          event.target.previousElementSibling.previousElementSibling.innerText,
       };
       localStorage.setItem(
         "selectedCoffee",
@@ -145,9 +191,11 @@ if (window.location.href.indexOf("index") > -1) {
         event.target.parentElement.previousElementSibling;
       let selectionInformations = {
         name:
-          event.target.previousElementSibling.previousElementSibling.innerText,
+          event.target.previousElementSibling.previousElementSibling
+            .previousElementSibling.innerText,
         image: homeBackgroundImage.querySelector(".homeBestSellerContainer img")
           .src,
+        description: event.target.previousElementSibling.innerText,
       };
       localStorage.setItem(
         "selectedCoffee",
@@ -157,6 +205,9 @@ if (window.location.href.indexOf("index") > -1) {
       let selectionInformations = {
         name: event.target.parentElement.nextElementSibling.innerText,
         image: event.target.src,
+        description:
+          event.target.parentElement.nextElementSibling.nextElementSibling
+            .innerText,
       };
       localStorage.setItem(
         "selectedCoffee",
@@ -177,9 +228,11 @@ if (window.location.href.indexOf("selection") > -1) {
     ".coffeeSelectionPictureContainer img"
   );
   let coffeeName = document.querySelector(".coffeeSelectionTitle");
+  let coffeeDescription = document.querySelector(".coffeeSelectionSubtitle");
 
   coffeeName.innerHTML = selectionInformations.name;
   coffeeSelectionBackgroundPicture.src = selectionInformations.image;
+  coffeeDescription.innerText = selectionInformations.description;
 
   /* Change the style when a bean type is selected */
   const wholeBeanSelect = document.querySelector(".wholeBean");
@@ -425,10 +478,14 @@ if (window.location.href.indexOf("coffee") > -1) {
     if (event.target.classList.contains("viewProduct")) {
       let selectionInformations = {
         name:
-          event.target.previousElementSibling.previousElementSibling.innerText,
+          event.target.previousElementSibling.previousElementSibling
+            .previousElementSibling.innerText,
         image:
           event.target.previousElementSibling.previousElementSibling
-            .previousElementSibling.firstElementChild.src,
+            .previousElementSibling.previousElementSibling.firstElementChild
+            .src,
+        description:
+          event.target.previousElementSibling.previousElementSibling.innerText,
       };
       localStorage.setItem(
         "selectedCoffee",
@@ -438,6 +495,9 @@ if (window.location.href.indexOf("coffee") > -1) {
       let selectionInformations = {
         name: event.target.parentElement.nextElementSibling.innerText,
         image: event.target.src,
+        description:
+          event.target.parentElement.nextElementSibling.nextElementSibling
+            .innerText,
       };
       localStorage.setItem(
         "selectedCoffee",
@@ -653,48 +713,3 @@ if (window.location.href.indexOf("cart") > -1) {
     }
   }
 }
-
-/* ============================================================
-                       ANIMATION GSAP
-=============================================================== */
-let tl = gsap.timeline({ default: { ease: "power2" } });
-let tl2 = gsap.timeline({ default: { ease: "power2" } });
-
-// tl.from(".header", { duration: 0.7, opacity: 0, y: -100 });
-// tl.from(
-//   ".homeBackgroundImage",
-//   {
-//     duration: 1,
-//     opacity: 0,
-//   },
-//   0.2
-// );
-// tl.from(".bestSellerPicture", { duration: 0.7, y: -210, opacity: 0 }, "-=0.5");
-// // tl.from(
-// //   ".homeBestSellerDescriptionContainer",
-// //   {
-// //     duration: 0.5,
-// //     y: 20,
-// //     opacity: 0,
-// //   },
-// //   "-=0.1"
-// // );
-
-// tl2.from(
-//   ".coffeeSelectionPicture",
-//   {
-//     duration: 0.6,
-//     opacity: 0,
-//     y: -100,
-//   },
-//   "=+0.1"
-// );
-// tl2.from(
-//   ".coffeeSelectionDescriptionContainer",
-//   {
-//     duration: 0.4,
-//     y: 20,
-//     opacity: 0,
-//   },
-//   "+=0.1"
-// );
