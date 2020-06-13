@@ -95,67 +95,80 @@ faders.forEach((fader) => {
 /* ============================================================
                          HOME PAGE
 =============================================================== */
-if (window.location.href.indexOf("index") > -1) {
-  /* GSAP animation for the home page */
-  let tl = gsap.timeline({ default: { ease: "power2" } });
 
-  tl.from(".preloadName", { duration: 1, opacity: 0 }, 0.2);
+/* GSAP animation for the home page */
+let tl = gsap.timeline({ default: { ease: "power2" } });
 
-  tl.from(".preloadSubname", { duration: 0.5, opacity: 0, y: 10 }, "-=0.3");
-  tl.from(".preloadContainer img", {
-    duration: 1,
+tl.from(".preloadName", { duration: 1, opacity: 0 }, 0.2);
+
+tl.from(".preloadSubname", { duration: 0.5, opacity: 0, y: 10 }, "-=0.3");
+tl.from(".preloadContainer img", {
+  duration: 1,
+  opacity: 0,
+  y: -60,
+  ease: "bounce",
+});
+tl.to(
+  ".preloadContainer",
+  {
+    duration: 0.7,
     opacity: 0,
-    y: -60,
-    ease: "bounce",
-  });
-  tl.to(
-    ".preloadContainer",
-    {
-      duration: 0.7,
-      opacity: 0,
-      scale: 0.2,
-      ease: "Expo.easeOut",
-    },
-    "3"
-  );
-  tl.to(
-    ".preload",
-    {
-      duration: 0.2,
-      opacity: 0,
-      zIndex: -1,
-    },
-    "+=0.3"
-  );
-  tl.from(".bestSellerPicture", { duration: 0.7, y: -50, opacity: 0 }, "-=0.5");
-  tl.from(
-    ".homeBestSellerDescriptionContainer",
-    {
-      duration: 0.5,
-      y: 20,
-      opacity: 0,
-    },
-    "-=0.1"
-  );
+    scale: 0.2,
+    ease: "Expo.easeOut",
+  },
+  "3"
+);
+tl.to(
+  ".preload",
+  {
+    duration: 0.2,
+    opacity: 0,
+    zIndex: -1,
+  },
+  "+=0.3"
+);
+tl.from(".bestSellerPicture", { duration: 0.7, y: -50, opacity: 0 }, "-=0.5");
+tl.from(
+  ".homeBestSellerDescriptionContainer",
+  {
+    duration: 0.5,
+    y: 20,
+    opacity: 0,
+  },
+  "-=0.1"
+);
+tl.from(
+  ".homeBanner",
+  {
+    duration: 0.5,
+    y: 20,
+    opacity: 0,
+  },
+  "-=0.1"
+);
 
-  /* Move the best seller container when the width of the window is bigger then 768px */
-  $(document).ready(() => {
+/* Move the best seller container when the width of the window is bigger then 768px */
+$(document).ready(() => {
+  if ($(window).width() >= 768) {
+    $(".homeBestSellerDescriptionContainer").appendTo(".homeBackgroundImage");
+  }
+
+  window.addEventListener("resize", () => {
     if ($(window).width() >= 768) {
       $(".homeBestSellerDescriptionContainer").appendTo(".homeBackgroundImage");
+    } else {
+      $(".homeBestSellerDescriptionContainer").appendTo(".homePageContainer");
     }
-
-    window.addEventListener("resize", () => {
-      if ($(window).width() >= 768) {
-        $(".homeBestSellerDescriptionContainer").appendTo(
-          ".homeBackgroundImage"
-        );
-      } else {
-        $(".homeBestSellerDescriptionContainer").appendTo(".homePageContainer");
-      }
-    });
   });
+});
 
-  /* Change informations in the selection page when we click on the coffee picture or the view button */
+/* Change informations in the selection page when we click on the coffee picture or the view button */
+if (
+  document.querySelectorAll(".viewProduct") === null ||
+  document.querySelector(".viewCoffeeButton") === null ||
+  document.querySelectorAll(".featuredPhotoLink") === null
+) {
+} else {
   const viewProductButton = document.querySelectorAll(".viewProduct");
   const viewCoffeeButton = document.querySelector(".viewCoffeeButton");
   const featuredPhotoLink = document.querySelectorAll(".featuredPhotoLink");
